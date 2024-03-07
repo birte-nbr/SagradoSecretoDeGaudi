@@ -1,0 +1,490 @@
+.poppins-light {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.poppins-bold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.poppins-light-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+
+body {
+    margin: 0;
+    font-family: 'Poppins';
+    font-size: 16px;
+}
+
+header {
+    background: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    z-index: 1000;
+}
+
+h1 {
+    font-size: 70px;
+}
+
+h2 {
+    font-size: 55px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+.navbar {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: rgba(242, 244, 243, 0.3);
+}
+
+/*Logo in nav bar*/
+.logo-img {
+    height: 60px; /* less then nav bar height */
+    width: auto; /* logo scales proportionally */
+    padding-left: 25px;
+}
+
+/*Burger menu in nav bar*/
+.menu-toggle {
+    position: relative;
+    cursor: pointer; /* Added to make cursor pointer for hovering */
+}
+
+    .menu-toggle label {
+        cursor: pointer;
+        padding: 10px;
+    }
+
+        .menu-toggle label:before {
+            content: "\2630";
+            font-size: 55px;
+            border: 1px transparent;
+            border-radius: 8px;
+        }
+
+/*Burger menu when opened*/
+.menu {
+    display: none;
+    position: absolute;
+    right: 0; 
+    background-color: #CBE3F6;
+    border: 1px transparent #fff;
+    border-radius: 8px;
+}
+
+    .menu ul {
+        list-style-type: none;
+        padding-top: 10px;
+        padding: 10px;
+        margin: 0;
+    }
+
+        .menu ul li {
+            padding: 10px 25px;
+        }
+
+            .menu ul li a {
+                text-decoration: none;
+                color: #333;
+                transition: .5s;
+                position: relative;
+            }
+
+                .menu ul li a:hover {
+                    color: #70CBFF;
+                }
+
+
+.banner {
+    height: 90vh;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    /*image defined in html*/
+}
+
+    .banner img {
+        width: 100%;
+        height: 100%;
+    }
+
+    #banner-left {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        transition: width 2s ease;
+    }
+
+    #banner-right {
+        position: absolute;
+        top: 0;
+        right: 0; 
+        width: 50%;
+        height: 100vh;
+        transition: width 2s ease;
+    }
+
+    #banner-left img {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        height: 100vh;
+        object-fit: cover;
+    }
+
+    #banner-right img {
+        position: absolute;
+        width: 100%;
+        right: 0;
+        height: 100vh;
+        object-fit: cover;
+    }
+
+    #banner-left:hover {
+        width: 100%;
+        z-index: 1; /* Ensure the left image is on top when hovering */
+    }
+
+    #banner-right:hover {
+        width: 100%;
+        z-index: 1; /* Ensure the right image is on top when hovering */
+    }   
+
+
+.banner_subpages {
+    height: 50vh;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+    .banner_subpages img {
+        width: 100%;
+        height: auto;
+
+    }
+
+.filler {
+    padding: 25px;
+}
+
+.filler2 {
+    padding: 25px;
+    background-color: #f2f4f3;
+}
+
+.line-divider {
+    height: 2px;
+    background-color: #000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: calc(100% - 100px); 
+    margin-left: 50px; 
+}
+
+.section1 {
+    height: auto;
+    background: #fff;
+    color: #000;
+    padding: 50px;
+}
+
+.section2 {
+    height: auto; 
+    background: #f2f4f3;
+    color: #000;
+    padding: 50px;
+}
+
+.image-text-section {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 50px;
+    overflow: hidden;
+}
+
+    .image-wrapper-left {
+        grid-column: 1;
+        align-items: center;
+    }
+
+        .image-wrapper-left img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    .image-wrapper-right {
+        grid-column: 2;
+        align-items: center;
+    }
+
+        .image-wrapper-right img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+    .text-wrapper-left {
+        width: 100%;
+        grid-column: 1;
+        grid-row: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+        .text-wrapper-left h2{
+            padding-bottom: 50px;
+            margin: 0;
+            align-self: flex-start;
+        }
+
+        .text-wrapper-left p {
+            padding-bottom: 50px;
+            margin: 0;
+            align-self: center;
+        }
+
+        
+
+    .text-wrapper-right {
+        width: 100%;
+        grid-column: 2;
+        grid-row: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+       
+        .text-wrapper-right h2{
+            padding-bottom: 50px;
+            margin: 0;
+            align-self: flex-start;
+        }
+
+        .text-wrapper-right p {
+            padding-bottom: 50px;
+            margin: 0;
+            align-self: center;
+        }
+
+
+.text-section-3-blocks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    padding-top: 50px;
+}
+    .three-blocks-text-block{
+        background-color: #f2f4f3;
+        padding:25px;
+        border-radius: 8px;
+        border: none;
+    }
+
+        .three-blocks-text-block h3 {
+            padding-bottom: 25px;
+        }
+
+        .three-blocks-text-block p {
+            padding-bottom: 25px;
+        }
+        
+.title-text-row {
+    display: grid;
+    gap: 50px;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 8px;
+    border: 2px solid #E7E0DA;
+    width: calc(100% - 50px); /* width 50px less than the full width acc. to wireframe -> double padding of 50px*/
+    margin: 0 auto; /* Center the element horizontally */
+    padding: 70px; /* padding inside the border */
+    box-sizing: border-box; /*include border and padding in the width calculation */
+}
+
+    .title-text-row h2{
+        grid-column: 1;
+        grid-row: 1;
+        align-self: center;
+    }
+
+    .title-text-row p {
+        grid-column: 2;
+        grid-row: 1;
+        align-self: center;
+    }
+
+    .title-text-row .button-dark {
+        grid-column: 2;
+        grid-row: 2;
+        align-self: baseline;
+    }
+
+.slideshow-container {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .review-slider {
+        display: flex;
+        transition: transform 0.5s ease; /* Apply sliding transition */
+    }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            z-index: 1;
+        }
+        
+            .previous {
+                left: 10px;
+            }
+            
+            .next {
+                right: 10px;
+            }
+
+        
+            .review-slide {
+                flex: 0 0 auto;
+                width: 100%; /* Ensure each slide takes full width */
+            }
+    
+        
+    .reviewer-photo {
+        width: 150px;
+        height: 150px;
+        background-color: #f2f4f3; /* Example background color for photo */
+        border-radius: 50%;
+        overflow: hidden; /* Ensure the image stays within the container */
+        grid-column: 2;
+        grid-row: 1;
+    }
+        
+        .reviewer-photo img {
+            width: 100%; /* Scaling to fit the container width */
+            height: 100%; /*Scaling to fit the container height */
+            object-fit: cover; 
+        }
+        
+    .review-text {
+        padding: 25px;
+        grid-column: 3;
+        grid-row: 1;
+    }
+    
+   
+    
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    background-color: #000;
+        color: #fff;
+        border-radius: 8px; 
+        border: none;
+        padding-top: 18px;
+        padding-bottom: 18px;
+        padding-left: 40px;
+        padding-right: 40px;
+        cursor: pointer;
+        font-size: 16px; 
+        width: fit-content; /* button width adjusts to the text */
+        height: fit-content;
+}
+
+    button[type="submit"]:hover {
+        background-color: #CBE3F6;
+        color: #000;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    }
+
+
+
+.button-dark {
+        background-color: #000;
+        color: #fff;
+        border-radius: 8px; 
+        border: none;
+        padding-top: 18px;
+        padding-bottom: 18px;
+        padding-left: 40px;
+        padding-right: 40px;
+        cursor: pointer;
+        font-size: 16px; 
+        width: fit-content; /* button width adjusts to the text */
+        height: fit-content;
+}
+    
+    .button-dark:hover {
+        background-color: #CBE3F6;
+        color: #000;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    }
+
+        
+.button-white {
+    background-color: #fff;
+    color: #000;
+}
+
+footer {
+    background: #e6e0db;
+    color: #000;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+}
