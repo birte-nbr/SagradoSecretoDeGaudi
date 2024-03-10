@@ -1,5 +1,8 @@
 //Augus' part on overall website functionality
 
+    //tap button accessibilioty function (no square when using mouse)
+
+
     //Burger menu
 
         //Burger menu function to open
@@ -21,6 +24,22 @@
 
         // Event listener to close the menu when clicking outside of it
         document.addEventListener('click', closeMenuOnClickOutside);
+
+
+    //function to change burger menu to cross and back when clicked{
+        //var menu = document.querySelector('.menu');
+        //var burgerIcon = document.getElementById('burger-icon');
+
+        // if (menu.style.display === 'block') {
+        // menu.style.display = 'none';
+                    //burgerIcon.innerHTML = ''; // Reset to empty
+                    //burgerIcon.innerHTML = '<path fill="#000" d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>'; // Burger icon SVG path
+                //} else {
+                   // menu.style.display = 'block';
+                    //burgerIcon.innerHTML = ''; // Reset to empty
+                    //burgerIcon.innerHTML = '<path fill="#000" d="M7 10.5l9 9-1.4 1.4-9-9-9 9L0.6 19z"/>'; // Cross icon SVG path
+                //}
+            //}
 
     //Banner images
         //interactivity of homepage banner
@@ -135,7 +154,7 @@
             //     // Handle error
             // });
         //BUT: need server-side code (like PHP) to handle form submissions and process the data
-        
+
         //logging the form data to the console
         console.log('Name:', name);
         console.log('Email:', email);
