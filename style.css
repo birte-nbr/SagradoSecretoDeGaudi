@@ -1,3 +1,9 @@
+/* focus style to all elements FOR ACCESIIBILITY TAP BUTTON*/
+*:focus {
+    outline: 3px solid #007bff;
+    outline-offset: 5px; /*padding around element*/
+}
+
 .poppins-light {
     font-family: "Poppins", sans-serif;
     font-weight: 300;
@@ -27,7 +33,7 @@
 body {
     margin: 0;
     font-family: 'Poppins';
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 header {
@@ -41,15 +47,15 @@ header {
 }
 
 h1 {
-    font-size: 70px;
+    font-size: 4.375rem;
 }
 
 h2 {
-    font-size: 55px;
+    font-size: 3.4375rem;
 }
 
 h3 {
-    font-size: 30px;
+    font-size: 1.875rem;
 }
 
 .navbar {
@@ -71,8 +77,23 @@ h3 {
 /*Burger menu in nav bar*/
 .menu-toggle {
     position: relative;
-    cursor: pointer; /* Added to make cursor pointer for hovering */
+    cursor: pointer; 
+    background: none;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    color: #333;
 }
+    
+    .menu-toggle:hover {
+        color: #70CBFF; 
+    }
+    
+    .menu-toggle :focus{
+        outline: 3px solid #007bff;
+    outline-offset: 5px; /*padding around element*/
+    }
+    
 
     .menu-toggle label {
         cursor: pointer;
@@ -81,7 +102,7 @@ h3 {
 
         .menu-toggle label:before {
             content: "\2630";
-            font-size: 55px;
+            font-size: 3.4375rem;
             border: 1px transparent;
             border-radius: 8px;
         }
@@ -128,6 +149,19 @@ h3 {
     overflow: hidden;
     /*image defined in html*/
 }
+
+    .banner h1 {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        text-align: center;
+        transform: translateX(-50%); /*center horizontally */
+        z-index: 1;
+        font-size: 4.375rem;
+        background-color: rgba(255, 255, 255, 0.7); /*semi-transparent background for readability/accessibility */
+        border-radius: 8px;
+        padding: 10px;
+    }
 
     .banner img {
         width: 100%;
@@ -308,21 +342,61 @@ h3 {
     gap: 50px;
     padding-top: 50px;
 }
-    .three-blocks-text-block{
+    .three-blocks-text-block-gray{
         background-color: #f2f4f3;
         padding:25px;
         border-radius: 8px;
         border: none;
     }
 
-        .three-blocks-text-block h3 {
+        .three-blocks-text-block-gray h3 {
             padding-bottom: 25px;
         }
 
-        .three-blocks-text-block p {
+        .three-blocks-text-block-gray p {
             padding-bottom: 25px;
         }
+
+    .three-blocks-text-block-transparent{
+        padding:25px;
+        border-radius: 8px;
+        border: none;
+    }
+
+        .three-blocks-text-block-transparent p {
+            list-style: none;
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .three-blocks-text-block-transparent a {
+            list-style: none;
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .three-blocks-text-block-transparent ul {
+            list-style: none;
+            padding: 0;
+        }
         
+        .three-blocks-text-block-transparent ul li {
+            display: inline; 
+            margin-right: 20px;
+        }
+        
+        .three-blocks-text-block-transparent ul li a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .three-blocks-text-block-transparent ul li a:hover {
+            text-decoration: none;
+            color: #007bff;
+        }
+        
+
+
 .title-text-row {
     display: grid;
     gap: 50px;
@@ -369,6 +443,9 @@ h3 {
             transform: translateY(-50%);
             cursor: pointer;
             z-index: 1;
+            background: none;
+            border: none;
+            padding: 10px;
         }
         
             .previous {
@@ -438,15 +515,14 @@ button[type="submit"] {
         padding-left: 40px;
         padding-right: 40px;
         cursor: pointer;
-        font-size: 16px; 
+        font-size: 1rem; 
         width: fit-content; /* button width adjusts to the text */
         height: fit-content;
 }
 
     button[type="submit"]:hover {
-        background-color: #CBE3F6;
-        color: #000;
-        box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+        background-color: #007bff;
+        color: #fff;
     }
 
 
@@ -461,15 +537,14 @@ button[type="submit"] {
         padding-left: 40px;
         padding-right: 40px;
         cursor: pointer;
-        font-size: 16px; 
+        font-size: 1rem; 
         width: fit-content; /* button width adjusts to the text */
         height: fit-content;
 }
     
     .button-dark:hover {
-        background-color: #CBE3F6;
-        color: #000;
-        box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+        background-color: #007bff;
+        color: #fff;
     }
 
         
@@ -486,5 +561,18 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 200px;
+    height: auto;
 }
+
+.socialmedia:hover img[src="images/x.png"] {
+    content: url('images/x_blue.png');
+}
+
+.socialmedia:hover img[src="images/ig.png"] {
+    content: url('images/ig_blue.png');
+}
+
+.socialmedia:hover img[src="images/facebook.png"] {
+    content: url('images/facebook_blue.png');
+}
+    
