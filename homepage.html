@@ -12,23 +12,38 @@
 </head>
 <body>
     <header>
+        <script src="https://cdn.userway.org/widget.js" data-account="nY3cImFAaN"></script>
         <nav class="navbar">
             <div class="logo"><a href="homepage.html"><img src="images/ESSDG_Logo.png" alt="Logo" class="logo-img"></a></div>
-            <button class="menu-toggle" onclick="toggleMenu()">
+            <!-- Marina: wrong use button and label. div can't be included in the button. -->
+            <!-- Marina: The value of the "for" attribute of the label element must be the ID of a non-hidden form control. -->
+            <!-- <button class="menu-toggle" onclick="toggleMenu()">               
                 <label for="toggle"></label>
-                <div class="menu">
+                    <div class="menu">
                     <ul>
-                        <li><a href="homepage.html">Home<span></span></a></li>
+                        <li><a href="homepage.html" >Home<span></span></a></li>
                         <li><a href="architecture.html">Architecture<span></span></a></li>
                         <li><a href="timeline.html">Timeline<span></span></a></li>
                         <li><a href="about.html">About Us<span></span></a></li>
                         <li><a href="contact.html">Contact<span></span></a></li>
                         <li><a href="terms.html">Terms and Conditions<span></span></a></li>
                     </ul>
-                </div>
-            </button>
+                </div> 
+            </button> -->
+            <button class="menu-toggle" onclick="toggleMenu()" aria-controls="menuContent" aria-expanded="false"></button>    
+            <div class="menu" id="menuContent">
+                <ul>
+                    <li><a href="homepage.html" >Home<span></span></a></li>
+                    <li><a href="architecture.html">Architecture<span></span></a></li>
+                    <li><a href="timeline.html">Timeline<span></span></a></li>
+                    <li><a href="about.html">About Us<span></span></a></li>
+                    <li><a href="contact.html">Contact<span></span></a></li>
+                    <li><a href="terms.html">Terms and Conditions<span></span></a></li>
+                </ul>
+            </div>          
         </nav>
     </header>
+
 
     <!-- Banner -->
 
@@ -202,7 +217,7 @@
         <div class="text-section-3-blocks">
             <div class="three-blocks-text-block-transparent">
                 <a class="socialmedia" href="https://twitter.com/sagradafamilia/status/1185124497470439426" target="_blank">
-                    <img src="images/x.png" alt="X Logo with Link to x"style="width: 30px; height: 30px;"></a>
+                    <img src="images/x.png" alt="X Logo with Link to x" style="width: 30px; height: 30px;"></a>
                 <a class="socialmedia" href="https://www.instagram.com/basilicasagradafamilia/" target="_blank">
                     <img src="images/ig.png" alt="Instagram Logo with Link to Instagram" style="width: 30px; height: 30px;"></a>
                 <a class="socialmedia" href="https://www.facebook.com/BasilicadelaSagradaFamilia/" target="_blank">

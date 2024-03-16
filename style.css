@@ -1,5 +1,6 @@
 /* focus style to all elements FOR ACCESIIBILITY TAP BUTTON*/
-*:focus {
+/* Marina: Change to focus-visible so that only when keyboard there's focus */
+*:focus-visible {
     outline: 3px solid #007bff;
     outline-offset: 5px; /*padding around element*/
 }
@@ -89,29 +90,32 @@ h3 {
         color: #70CBFF; 
     }
     
-    .menu-toggle :focus{
-        outline: 3px solid #007bff;
+    .menu-toggle:focus-visible{
+    outline: 3px solid #007bff;
     outline-offset: 5px; /*padding around element*/
     }
     
 
-    .menu-toggle label {
+    .menu-toggle{
         cursor: pointer;
         padding: 10px;
     }
 
-        .menu-toggle label:before {
-            content: "\2630";
-            font-size: 3.4375rem;
-            border: 1px transparent;
-            border-radius: 8px;
-        }
+    .menu-toggle:before {
+        content: "\2630";
+        font-size: 3.4375rem;
+        border: 1px transparent;
+        border-radius: 8px;
+        cursor: pointer;
+        padding: 10px;
+    }
 
 /*Burger menu when opened*/
 .menu {
     display: none;
     position: absolute;
     right: 0; 
+    top: 100%;
     background-color: #CBE3F6;
     border: 1px transparent #fff;
     border-radius: 8px;

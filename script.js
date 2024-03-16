@@ -26,6 +26,23 @@
         document.addEventListener('click', closeMenuOnClickOutside);
 
 
+        //Marina added: Event listener to toggle the menu with keyboard (Enter and Space keys)
+        document.querySelector('.menu-toggle').addEventListener('keydown', function(event) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                toggleMenu();
+                event.preventDefault(); // Prevent scrolling when using Space
+            }
+        });
+
+        //Marina added: add event listener to change the "aria-expanded" attribute
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            var menu = document.querySelector('.menu');
+            var isExpanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !isExpanded);
+        });
+
+
+
     //function to change burger menu to cross and back when clicked{
         //var menu = document.querySelector('.menu');
         //var burgerIcon = document.getElementById('burger-icon');
