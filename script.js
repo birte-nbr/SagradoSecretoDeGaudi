@@ -1,6 +1,59 @@
 //Augus' part on overall website functionality
 
-    //tap button accessibilioty function (no square when using mouse)
+    //Scroller - leave on top, otherwise won't work
+    const container = document.querySelector('.timeline_project');
+    const selections = gsap.utils.toArray('.timeline_project section');
+    const etxts = gsap.utils.toArray('.anim');
+    const mask = document.querySelector('.mask');
+    
+    // Calculate the total width of all text sections
+    let totalWidth = 0;
+    selections.forEach(section => {
+        totalWidth += section.offsetWidth;
+    });
+    
+    //scroll trigger (scrolling = moving right on timeline)
+    let scrollTween = gsap.to(selections, {
+        xPercent: -100 * (selections.length - 1), // x-axis scroll
+        ease: "none", // constant speed of animation
+        scrollTrigger: {
+            trigger: ".timeline_project",
+            pin: true, // element will be pinned to the viewport (while scrolling trigger, no down scrolling)
+            scrub: 1, // scroll and movement of text happens synchronized
+            end: "+=1500" // End point when all text sections are fully shown
+        }
+    });
+    
+    //mask black filling gray SVG
+    gsap.to(mask, {
+        width: "100%",
+        scrollTrigger: {
+            trigger: ".timeline_project",
+            start: "top top",
+            scrub: 1, 
+            end: "+=1800"
+        }
+    });
+    
+
+        //animation text
+        sections.forEach(section => {
+            let text = section.querySelectorAll('.anim')
+
+            gsap.from(text, {
+                y: -130,
+                opacity: 0,
+                duration: 2,
+                ease: "elastic",
+                stagger: 0.1,
+                scrollTrigger: {
+                    trigger: section,
+                    containerAnimation: scrollTween,
+                    start: "left center", //when animation comes in
+                    markers: true // for debugging (check the start and end of animations)
+                }
+            })
+        })
 
 
     //Burger menu
@@ -25,114 +78,46 @@
         // Event listener to close the menu when clicking outside of it
         document.addEventListener('click', closeMenuOnClickOutside);
 
-
-        //Marina added: Event listener to toggle the menu with keyboard (Enter and Space keys)
-        document.querySelector('.menu-toggle').addEventListener('keydown', function(event) {
-            if (event.key === 'Enter' || event.key === ' ') {
-                toggleMenu();
-                event.preventDefault(); // Prevent scrolling when using Space
-            }
-        });
-
-        //Marina added: add event listener to change the "aria-expanded" attribute
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
-            var menu = document.querySelector('.menu');
-            var isExpanded = this.getAttribute('aria-expanded') === 'true';
-            this.setAttribute('aria-expanded', !isExpanded);
-        });
-
-
-
-    //function to change burger menu to cross and back when clicked{
-        //var menu = document.querySelector('.menu');
-        //var burgerIcon = document.getElementById('burger-icon');
-
-        // if (menu.style.display === 'block') {
-        // menu.style.display = 'none';
-                    //burgerIcon.innerHTML = ''; // Reset to empty
-                    //burgerIcon.innerHTML = '<path fill="#000" d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>'; // Burger icon SVG path
-                //} else {
-                   // menu.style.display = 'block';
-                    //burgerIcon.innerHTML = ''; // Reset to empty
-                    //burgerIcon.innerHTML = '<path fill="#000" d="M7 10.5l9 9-1.4 1.4-9-9-9 9L0.6 19z"/>'; // Cross icon SVG path
-                //}
-            //}
-
-    //Banner images
-        //interactivity of homepage banner
-        let leftExpanded = false;
-        let rightExpanded = false;
-        
-        // event listener: trigger transition on mouse enter
-        document.querySelector('.banner').addEventListener('mouseenter', function(event) {
-            const mouseX = event.clientX;
-            const bannerLeftEdge = document.querySelector('.banner').getBoundingClientRect().left;
-            const bannerWidth = document.querySelector('.banner').offsetWidth;
-        
-            if (mouseX < bannerLeftEdge + (bannerWidth / 2)) {
-                if (!leftExpanded) {
-                    document.querySelector('#banner-left').style.transition = 'width 2s ease';
-                    document.querySelector('#banner-right').style.transition = 'width 2s ease';
-                    document.querySelector('#banner-left').style.width = '100%';
-                    document.querySelector('#banner-right').style.width = '0%';
-                    leftExpanded = true;
-                    rightExpanded = false;
-                }
-            } else {
-                if (!rightExpanded) {
-                    document.querySelector('#banner-left').style.transition = 'width 2s ease';
-                    document.querySelector('#banner-right').style.transition = 'width 2s ease';
-                    document.querySelector('#banner-left').style.width = '0%';
-                    document.querySelector('#banner-right').style.width = '100%';
-                    leftExpanded = false;
-                    rightExpanded = true;
-                }
-            }
-        });
-        
-        // event listener: trigger transition on mouse leave
-        document.querySelector('.banner').addEventListener('mouseleave', function() {
-            document.querySelector('#banner-left').style.transition = 'width 2s ease';
-            document.querySelector('#banner-right').style.transition = 'width 2s ease';
-            document.querySelector('#banner-left').style.width = '50%';
-            document.querySelector('#banner-right').style.width = '50%';
-            leftExpanded = false;
-            rightExpanded = false;
-        });
         
 
     //Buttons
 
-        //Button click redirect
+        //Button click redirect when clicked
         function redirectToPage(url) {
             window.location.href = url;
         }
 
 
-    //Reviews
-    let currentReviewIndex = 0;
-        const totalReviews = document.querySelectorAll('.review-slide').length;
-        const slider = document.querySelector('.review-slider');
-        const slideWidth = document.querySelector('.review-slide').offsetWidth;
+    //Homepage
+    
+    //Reviews slider
+    // Review Slider
+let currentReviewIndex = 0;
+const totalReviews = document.querySelectorAll('.review-slide').length;
+const slider = document.querySelector('.review-slider');
+const slideWidth = document.querySelector('.review-slide').offsetWidth;
 
-        function showReview(index) {
-            const offset = -index * slideWidth;
-            slider.style.transform = `translateX(${offset}px)`;
-        }
+function showReview(index) {
+    const offset = -index * slideWidth;
+    slider.style.transform = `translateX(${offset}px)`;
+}
 
-        function nextReview() {
-            currentReviewIndex = (currentReviewIndex + 1) % totalReviews;
-            showReview(currentReviewIndex);
-        }
+function nextReview() {
+    currentReviewIndex = (currentReviewIndex + 1) % totalReviews;
+    showReview(currentReviewIndex);
+}
 
-        function prevReview() {
-            currentReviewIndex = (currentReviewIndex - 1 + totalReviews) % totalReviews;
-            showReview(currentReviewIndex);
-        }
+function prevReview() {
+    currentReviewIndex = (currentReviewIndex - 1 + totalReviews) % totalReviews;
+    showReview(currentReviewIndex);
+}
 
-        // Show the first review initially
-        showReview(currentReviewIndex);
+// Button event listeners for next and previous reviews
+document.querySelector('.next-btn').addEventListener('click', nextReview);
+document.querySelector('.prev-btn').addEventListener('click', prevReview);
 
+// Show the first review initially
+showReview(currentReviewIndex);
 
     //Contact form
     document.getElementById("contact-form").addEventListener("submit", function(event) {
@@ -180,8 +165,12 @@
         //reset the form after submission
         this.reset();
     });
+
     
-        
-        
+    
+    //About us page
+
+
+   
 
 //Nimish's and Birte's part on interactve model
