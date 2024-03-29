@@ -1,97 +1,130 @@
-//Augus' part on overall website functionality
-
-    //Scroller - leave on top, otherwise won't work
-    const container = document.querySelector('.timeline_project');
-    const selections = gsap.utils.toArray('.timeline_project section');
-    const etxts = gsap.utils.toArray('.anim');
-    const mask = document.querySelector('.mask');
-    
-    // Calculate the total width of all text sections
-    let totalWidth = 0;
-    selections.forEach(section => {
-        totalWidth += section.offsetWidth;
-    });
-    
-    //scroll trigger (scrolling = moving right on timeline)
-    let scrollTween = gsap.to(selections, {
-        xPercent: -100 * (selections.length - 1), // x-axis scroll
-        ease: "none", // constant speed of animation
-        scrollTrigger: {
-            trigger: ".timeline_project",
-            pin: true, // element will be pinned to the viewport (while scrolling trigger, no down scrolling)
-            scrub: 1, // scroll and movement of text happens synchronized
-            end: "+=1500" // End point when all text sections are fully shown
-        }
-    });
-    
-    //mask black filling gray SVG
-    gsap.to(mask, {
-        width: "100%",
-        scrollTrigger: {
-            trigger: ".timeline_project",
-            start: "top top",
-            scrub: 1, 
-            end: "+=1800"
-        }
-    });
-    
-
-        //animation text
-        sections.forEach(section => {
-            let text = section.querySelectorAll('.anim')
-
-            gsap.from(text, {
-                y: -130,
-                opacity: 0,
-                duration: 2,
-                ease: "elastic",
-                stagger: 0.1,
-                scrollTrigger: {
-                    trigger: section,
-                    containerAnimation: scrollTween,
-                    start: "left center", //when animation comes in
-                    markers: true // for debugging (check the start and end of animations)
-                }
-            })
-        })
-
-
-    //Burger menu
-
-        //Burger menu function to open
-        function toggleMenu() {
-            var menu = document.querySelector('.menu');
-            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
-        }
-
-        //Burger menu function to close the menu when clicking outside of it
-        function closeMenuOnClickOutside(event) {
-            var menu = document.querySelector('.menu');
-            var menuToggle = document.querySelector('.menu-toggle');
+        //Timeline
+        const initSlider = () => {
+            const imageList = document.querySelector(".slider-wrapper .image-list");
+            const slideButtons = document.querySelectorAll(".slider-wrapper .slide-button");
+            const sliderScrollbar = document.querySelector(".timeline-container .slider-scrollbar");
+            const scrollbarThumb = sliderScrollbar.querySelector(".scrollbar-thumb");
+            const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
             
-            // Check if the clicked element is not within the menu or the menu toggle
-            if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
-                menu.style.display = 'none';
+            // Handle scrollbar thumb drag
+            scrollbarThumb.addEventListener("mousedown", (e) => {
+                const startX = e.clientX;
+                const thumbPosition = scrollbarThumb.offsetLeft;
+                const maxThumbPosition = sliderScrollbar.getBoundingClientRect().width - scrollbarThumb.offsetWidth;
+                
+                // Update thumb position on mouse move
+                const handleMouseMove = (e) => {
+                    const deltaX = e.clientX - startX;
+                    const newThumbPosition = thumbPosition + deltaX;
+                    // Ensure the scrollbar thumb stays within bounds
+                    const boundedPosition = Math.max(0, Math.min(maxThumbPosition, newThumbPosition));
+                    const scrollPosition = (boundedPosition / maxThumbPosition) * maxScrollLeft;
+                    
+                    scrollbarThumb.style.left = `${boundedPosition}px`;
+                    imageList.scrollLeft = scrollPosition;
+                }
+                // Remove event listeners on mouse up
+                const handleMouseUp = () => {
+                    document.removeEventListener("mousemove", handleMouseMove);
+                    document.removeEventListener("mouseup", handleMouseUp);
+                }
+                // Add event listeners for drag interaction
+                document.addEventListener("mousemove", handleMouseMove);
+                document.addEventListener("mouseup", handleMouseUp);
+            });
+            // Slide images according to the slide button clicks
+            slideButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    const direction = button.id === "prev-slide" ? -1 : 1;
+                    const scrollAmount = imageList.clientWidth * direction;
+                    imageList.scrollBy({ left: scrollAmount, behavior: "smooth" });
+                });
+            });
+             // Show or hide slide buttons based on scroll position
+            const handleSlideButtons = () => {
+                slideButtons[0].style.display = imageList.scrollLeft <= 0 ? "none" : "flex";
+                slideButtons[1].style.display = imageList.scrollLeft >= maxScrollLeft ? "none" : "flex";
             }
+            // Update scrollbar thumb position based on image scroll
+            const updateScrollThumbPosition = () => {
+                const scrollPosition = imageList.scrollLeft;
+                const thumbPosition = (scrollPosition / maxScrollLeft) * (sliderScrollbar.clientWidth - scrollbarThumb.offsetWidth);
+                scrollbarThumb.style.left = `${thumbPosition}px`;
+            }
+            // Call these two functions when image list scrolls
+            imageList.addEventListener("scroll", () => {
+                updateScrollThumbPosition();
+                handleSlideButtons();
+            });
         }
-
-        // Event listener to close the menu when clicking outside of it
-        document.addEventListener('click', closeMenuOnClickOutside);
-
+        window.addEventListener("resize", initSlider);
+        window.addEventListener("load", initSlider);
         
 
-    //Buttons
 
-        //Button click redirect when clicked
-        function redirectToPage(url) {
-            window.location.href = url;
-        }
+//Augus' part on overall website functionality
+
+// Blog modal functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const openPopupButtons = document.querySelectorAll('[data-popup-target]');
+    const closePopupButtons = document.querySelectorAll('[data-close-button]');
+    const popupOverlay = document.getElementById('pop-up-overlay');
+
+    openPopupButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const popup = document.querySelector(button.dataset.popupTarget);
+            openPopup(popup);
+        });
+    });
+
+    popupOverlay.addEventListener('click', () => {
+        const popups = document.querySelectorAll('.pop-up.active');
+        popups.forEach(popup => {
+            closePopup(popup);
+        });
+    });
+
+    closePopupButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const popup = button.closest('.pop-up');
+            closePopup(popup);
+        });
+    });
+
+    function openPopup(popup) {
+        if (popup == null) return;
+        popup.classList.add('active');
+        popupOverlay.classList.add('active');
+    }
+
+    function closePopup(popup) {
+        if (popup == null) return;
+        popup.classList.remove('active');
+        popupOverlay.classList.remove('active');
+    }
+});
 
 
-    //Homepage
+
+// Burger menu functionality
+function toggleMenu() {
+    var menu = document.querySelector('.menu');
+    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+}
+
+function closeMenuOnClickOutside(event) {
+    var menu = document.querySelector('.menu');
+    var menuToggle = document.querySelector('.menu-toggle');
     
-    //Reviews slider
-    // Review Slider
+    if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
+        menu.style.display = 'none';
+    }
+}
+
+document.addEventListener('click', closeMenuOnClickOutside);
+
+
+// Review Slider functionality
 let currentReviewIndex = 0;
 const totalReviews = document.querySelectorAll('.review-slide').length;
 const slider = document.querySelector('.review-slider');
@@ -112,36 +145,38 @@ function prevReview() {
     showReview(currentReviewIndex);
 }
 
-// Button event listeners for next and previous reviews
 document.querySelector('.next-btn').addEventListener('click', nextReview);
 document.querySelector('.prev-btn').addEventListener('click', prevReview);
 
-// Show the first review initially
 showReview(currentReviewIndex);
 
-    //Contact form
-    document.getElementById("contact-form").addEventListener("submit", function(event) {
-        // Prevent browser from default behavior after submission like reload etc.
-        event.preventDefault();
-    
-        // Get form input values
-        const name = document.querySelector('#name').value.trim();
-        const email = document.querySelector('#email').value.trim();
-        const message = document.querySelector('#message').value.trim();
-    
-        // Check if fields are filled
-        if (name === '' || email === '' || message === '') {
-            alert('Please fill out all fields.');
-            return; // Exit the function if fields are not filled
-        }
-    
-        // Additional validation (email format)
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            alert('Please enter a valid email address.');
-            return; // Exit the function if email format is invalid
-        }
-    
+
+// Contact form functionality
+document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.querySelector('#name').value.trim();
+    const email = document.querySelector('#email').value.trim();
+    const message = document.querySelector('#message').value.trim();
+
+    if (name === '' || email === '' || message === '') {
+        alert('Please fill out all fields.');
+        return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
+    }
+
+    console.log('Name:', name);
+    console.log('Email:', email);
+    console.log('Message:', message);
+
+    this.reset();
+});
+
         // If all validations pass, form submission
         //next steps: data to server using AJAX xample:
             // const formData = new FormData(this);
@@ -157,20 +192,7 @@ showReview(currentReviewIndex);
             // });
         //BUT: need server-side code (like PHP) to handle form submissions and process the data
 
-        //logging the form data to the console
-        console.log('Name:', name);
-        console.log('Email:', email);
-        console.log('Message:', message);
-    
-        //reset the form after submission
-        this.reset();
-    });
-
-    
-    
-    //About us page
-
-
    
+
 
 //Nimish's and Birte's part on interactve model
