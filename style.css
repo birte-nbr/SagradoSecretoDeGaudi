@@ -406,9 +406,11 @@ span {
     padding: 100px;
     transform: translateY(-50%);
 }
-
+/* @augus I removed padding here bc textbox was too slim */
 #section-model {
     height:auto;
+    margin: 0 -5% 0 0;
+    
 }
 
 .image-text-section {
@@ -1501,10 +1503,6 @@ section {
     height: fit-content + 10%;
     
 }
-.options-container-box:hover {
-    transform: translateY(-8px);
-}
-
 
 .controls-container {
 	grid-area: controls;
@@ -1521,6 +1519,7 @@ section {
 	display: grid;
 	grid-template-columns: 4fr 2fr;
 	grid-template-rows: 31.25rem 6.25rem;
+    column-gap: 1.5625rem;
 }
 
 /*elements of the grid */
@@ -1531,7 +1530,8 @@ section {
 
 .model-box {
 	grid-row: 1;
-	grid-column: 1;  
+	grid-column: 1;
+    
 }
 .textbox-area {
 	grid-row: 1;
@@ -1549,22 +1549,27 @@ section {
 	width: 95%;
 	overflow-y: scroll;
 	overflow-x: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    
 	
 }
 
 .textbox p {
 	color: #f2f4f3;
-	margin-left: 2%;
-	margin-right: 2%;
-	
+    padding: 2%
 
 }
 .textbox h4 {
 	color: #f2f4f3;
+    padding: 2%
 }
-
+.textbox a {
+    color: #f2f4f3;
+}
+.textbox li {
+    color: #f2f4f3;
+}
 .close {
 	position: absolute;
 	background-color: #ffffff; 
@@ -1618,7 +1623,7 @@ left: 5%;
 
 /* navigation side line */
 
-/* navigation side line */
+
 
 .navigation-aid svg {
 	
@@ -1626,11 +1631,12 @@ left: 5%;
     padding-left: 2%;
     padding-right: 2%;
 }
-/* style points 
-.navigation-aid svg path {
-
+/* style points  */
+.navigation-aid svg path:hover {
+   
+    fill: #223581;
 }
-*/
+
 
 
 /* annotations inside model viewer */
@@ -1658,16 +1664,15 @@ left: 5%;
 	opacity: var(--max-hotspot-opacity, 1);
 	transition: opacity 0.3s;
 }
-/* currently not in use */
+
 .HotspotAnnotation {
 	background: #fff;
 	border-radius: 4px;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 	color: rgba(0, 0, 0, 0.8);
 	display: block;
-	font-family: Futura, Helvetica Neue, sans-serif;
-	font-size: 18px;
-	font-weight: 700;
+    font-family: "Poppins", sans-serif;
+	font-size: 1rem;	
 	left: calc(100% + 1em);
 	max-width: 150px;
 	overflow-wrap: break-word;
@@ -1676,6 +1681,14 @@ left: 5%;
 	top: 50%;
 	width: max-content;
 }
+
+.Hotspot:not([data-visible]) > * {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(calc(-50% + 4px));
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  
 .Hotspot > * {
 	opacity: 1;
 	transform: translateY(-50%);
