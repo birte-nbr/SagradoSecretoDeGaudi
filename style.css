@@ -1569,70 +1569,64 @@ section {
 
 
 
+
+
+
 /* Augus' css adjustments to 3D model*/
-
-
-
-
-
-/* Birtes CSS for 3D model implementation */
 
 .section2 #section-model {
     height: 100vh;
 }
 
-/* change color of bootstrap sliders */
-
-.slider form-range {
+/* Change color of sliders */
+.slider input[type="range"] {
     outline: none;
-}
-.slider::-webkit-slider-thumb {
-	-webkit-appearance: none;
+    -webkit-appearance: none;
     appearance: none;
-	width: 20px;
-	height: 20px;
-	background-color: #223581; 
-    
-	cursor: pointer;
-	opacity: 1;
-  }
+    width: 100%;
+    height: 1rem;
+    background-color: transparent;
+    cursor: pointer;
+}
 
-  .slider::webkit-slider-thumb:active {
-	background-color: #223581;
-  }
+.slider input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #007bff;
+    cursor: pointer;
+}
 
-  /*same for checkboxes */
-  
+/* Change color of checked checkboxes */
 .form-check-input:checked {
-    background-color: #223581;
+    background-color: #007bff;
     border-color: #223581;
 }
 
-
-
+/* Styling for lazy-load poster */
 #lazy-load-poster {
-	grid-area: model-box;
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	background-color: rgba(var(--bs-light-rgb),var(--bs-bg-opacity))!important;
-	background-image: url("models/cathedral.webp");
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-position: center;
-	z-index: 200;
+    grid-area: model-box;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(35, 53, 129, 0.5);
+    background-image: url("models/cathedral.webp");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 200;
 }
 
 #button-load {
-	display: inline-block;
-	position: absolute;
-	left: 50%;
-	top: 10%;
-	transform: translate3d(-50%, -50%, 0);
-	z-index: 201;
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%, -50%);
+    z-index: 201;
 }
+
 
 /* @ Marina adjust this to correct percentages */
 @media (min-width: 576px) {
@@ -1649,63 +1643,142 @@ section {
 }
 
 
+
+
+
 /* grid for accessibility expander toggle menus */
+.collapsible-wrapper {
+    border: none;
+    border-radius: 8px;
+  }
+  
+  .collapsible-toggle {
+    display: none;
+  }
+  
+  .collapsible-label {
+    background-color: #000;
+    display: block;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    text-align: left;
+    border-radius: 8px;
+    padding: 0.9rem 1.875rem;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .collapsible label::after {
+    content: " ";
+    position: absolute;
+    right: 1rem;
+    top: 1.5625rem;
+    width: 1.05rem;
+    height: 1.05rem;
+}
+  
+  .collapsible-label:hover {
+    background-color: #007bff;
+  }
+  
+  .collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 3.125rem; 
+  }
+  
+  .collapsible-toggle:checked + .collapsible-label + .collapsible-content {
+    max-height: 100%;
+  }
+  
+
 
 .container-menus {
-	display: grid;
-	grid-template-rows: 200px 200px;
+    display: grid;
+    gap: 1.5625rem;
+    grid-template-rows: 200px 200px;
     padding: 1.5625rem;
-    row-gap: 10.5625rem; /* adjust later to 1. */
+    padding-bottom: 3.125rem;
+    row-gap: 10rem; /* adjust later to 1. */
+    grid-template-areas:
+    "options"
+    "controls";
+    height: auto;
+}
+
+    #options-row {
+        grid-area: options;
+        display: flex;
+        grid-template-columns: repeat(7, 1fr);
+        column-gap: 10px; 
+        flex-wrap: wrap;
+        border-radius: 8px;
+        overflow-x: auto;
+    }
+
+
+    .options-container-box {
+        gap: 1rem; 
+        background-color: #f9f9f9;
+        padding: 1.5625rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        margin-bottom: 10px; 
+        width: fit-content;
+        height: auto;
+        
+    }
+
+    .options-container-box label {
+        padding-bottom: 1.5625rem;
     
-    
-	grid-template-areas:
-	"options"
-	"controls";
-}
+    }
 
-/* options menu and boxes */
-#options-row {
-    grid-area: options;
-    display: flex;
-    grid-template-columns: repeat(7, 1fr);
-    column-gap: 10px; 
-    flex-wrap: wrap;
-    border-radius: 8px;
-    
-}
+    .controls-container-box {
+        grid-area: controls;
+        background-color: #000;
+        border-radius: 8px;     
+        height: 50vh;
+    }
 
 
-.options-container-box {
-   
-    gap: 1rem; 
-    background-color: #f9f9f9;
-    padding: 1.5625rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    margin-bottom: 10px; 
-    width: fit-content;
-    height: fit-content + 10%;
-    
-}
+        .controls-container p {
+            margin: 0;
+        }
 
-.controls-container {
-	grid-area: controls;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-}
-.options-container-box label {
-    padding-bottom: 1.5625rem;
+        table {
+            border-radius: 8px;
+            width: 100%;
+            border-collapse: collapse;
+            padding: 1.5625rem;   
+            background-color: #fff; 
+            
+        }
 
-}
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
 
-/* for model container */
-.container1 {
-	display: grid;
-	grid-template-columns: 4fr 2fr;
-	grid-template-rows: 31.25rem 6.25rem;
-    column-gap: 1.5625rem;
-}
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+
+
+
+
+
+
+
 
 /*elements of the grid */
 .navigation-aid {
@@ -1883,7 +1956,6 @@ left: 5%;
 model-viewer:focus-visible{
 	outline: 4px solid #9ec5fe;
 }
-
 
 /* marina added: Accessibility Skip links */
 .skip {
