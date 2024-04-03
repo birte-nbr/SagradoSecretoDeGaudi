@@ -13,32 +13,34 @@
 
 <body>
     <header> <!--aria-controls implementation-->
-        <nav class="navbar">
-            <div class="logo"><a href="homepage.html"><img src="images/ESSDG_Logo.png" alt="Logo" class="logo-img"></a></div>
-            <button class="menu-toggle" onclick="toggleMenu()">
-                <div class="menu">
-                    <ul>
-                        <li><a href="homepage.html">Home</a></li>
-                        <li><a href="architecture.html">Architecture</a></li>
-                        <li><a href="timeline.html">Timeline</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="terms.html">Terms and Conditions</a></li>
-                    </ul>
-                </div>
-            </button>
-        </nav>
+      <a href="#main" class="skip">Skip to main content</a>
+      <script src="https://cdn.userway.org/widget.js" data-account="nY3cImFAaN"></script>
+      <nav class="navbar">
+          <div class="logo"><a href="homepage.html" aria-label="Return to Homepage" ><img src="images/ESSDG_Logo.png" alt="Logo" class="logo-img"></a></div>       
+          <button class="menu-toggle" onclick="toggleMenu()" aria-controls="menuContent" aria-expanded="false" aria-label="Toggle menu"></button>
+          <!-- <label for="toggle"></label> -->
+          <div class="menu" id="menuContent">
+              <ul>
+                  <li><a href="homepage.html" aria-label="Link to Homepage" >Home</a></li>
+                  <li><a href="architecture.html" aria-label="Link to Architecture page">Architecture</a></li>
+                  <li><a href="timeline.html" aria-label="Link to Timeline page">Timeline</a></li>
+                  <li><a href="blog.html" aria-label="Link to Blog page">Blog</a></li>
+                  <li><a href="about.html" aria-label="Link to About us page">About Us</a></li>
+                  <li><a href="contact.html" aria-label="Link to Contact page">Contact</a></li>
+                  <li><a href="terms.html" aria-label="Link to Terms and Conditions page">Terms and Conditions</a></li>
+              </ul>
+          </div>
+      </nav>
     </header>
 
     <!-- Banner -->
     <section class="banner_subpages">
         <h1>Gaudí's Secrets</h1>
         <span>An exclusive blog on all things meaningful behind the Basílica de la Sagrada Família.</span>
-        <img src="images/Secret.jpg">
+        <img src="images/Secret.jpg" alt="">
     </section>
 
-  
+  <main id="main">
   <!-- Choice between architectural view and timeline of construction -->
   <section class="section1">
       
@@ -90,17 +92,17 @@
             <h3>The Nativity Façade</h3>
             <p>Located on the east facing side, this intricately detailed and naturalistic façade was inspired by the “Art Nouveau” movement and is the oldest one of all. It is the only façade whose construction began during Antoni Gaudí’s lifetime.</p>
           </div>
-          <button data-popup-target="#modal2">Read More</button>
+          <button data-popup-target="#modal2" aria-label="Read more about The Nativity Façade">Read More</button>
             
         </div>
-          
-        <div class="pop-up" id="modal2">
+       
+        <div class="pop-up"  id="modal2">
           
           <div class="pop-up-header">
             <div class="pop-up-img">
               <img src = "images/TheNativityFacade.png" alt = "The Nativity Facade">
             </div>   
-            <button data-close-button class="pop-up-close-button">&times;</button>
+            <button  data-close-button class="pop-up-close-button" aria-label="Close the Details">&times;</button>
           </div>
           
           <div class="pop-up-text">
@@ -119,7 +121,7 @@
 
         </div>
 
-        <div id="pop-up-overlay"></div>
+        <div class="pop-up-overlay"></div>
 
         <!-- end of item 2-->
 
@@ -135,7 +137,7 @@
             <h3>The Passion Façade</h3>
             <p>Facing the western direction, this façade is incredibly distinct with its sharp, angular features and is even described as being “skeletal” in terms of its structure–very much in contrast to the natural and organic scenes of the Nativity façade.</p>
           </div>
-          <button data-popup-target="#modal3">Read More</button>
+          <button data-popup-target="#modal3" aria-label="Read more about The Passion Façade">Read More</button>
             
         </div>
           
@@ -145,7 +147,7 @@
             <div class="pop-up-img">
               <img src = "images/ThePassionFacade.png" alt = "The Passion Facade">
             </div>   
-            <button data-close-button class="pop-up-close-button">&times;</button>
+            <button data-close-button class="pop-up-close-button"  aria-label="Close the Details">&times;</button>
           </div>
           
           <div class="pop-up-text">
@@ -165,7 +167,7 @@
           </div>
         </div>  
 
-        <div id="pop-up-overlay"></div>
+        <div class="pop-up-overlay"></div>
 
         <!-- end of item 3-->
 
@@ -181,7 +183,7 @@
           <h3>The Glory Façade</h3>
           <p>Facing the south with what is often referred to as the main entrance, is the final and only façade still under construction to this very day. It is also the only one not entirely structurally based on one of Gaudí’s models.</p>
         </div>
-        <button data-popup-target="#modal1">Read More</button>
+        <button data-popup-target="#modal1" aria-label="Read more about The Glory Façade">Read More</button>
           
       </div>
         
@@ -191,7 +193,7 @@
           <div class="pop-up-img">
             <img src = "images/TheGloryFacade.png" alt = "The Glory Facade">
           </div>   
-          <button data-close-button class="pop-up-close-button">&times;</button>
+          <button data-close-button class="pop-up-close-button"  aria-label="Close the Details">&times;</button>
         </div>
         
         <div class="pop-up-text">
@@ -212,7 +214,7 @@
 
       </div>  
 
-      <div id="pop-up-overlay"></div>
+      <div class="pop-up-overlay"></div>
 
       <!-- end of item 1-->
 
@@ -227,7 +229,7 @@
             <h3>The Evangelist Towers</h3>
             <p>Surrounding the main central tower of Jesus, these 4 towers all stand taller than the other 12 dedicated to the apostles at 135 metres in height, and instead represent the 4 Evangelists, who have dedicated their lives to the preservation of Christianity.</p>
           </div>
-          <button data-popup-target="#modal6">Read More</button>
+          <button data-popup-target="#modal6" aria-label="Read more about The Evangelist Towers">Read More</button>
             
         </div>
           
@@ -237,7 +239,7 @@
             <div class="pop-up-img">
               <img src = "images/Theevangelisttowers.png" alt = "The Evangelist Tower">
             </div>   
-            <button data-close-button class="pop-up-close-button">&times;</button>
+            <button data-close-button class="pop-up-close-button"  aria-label="Close the Details">&times;</button>
           </div>
           
           <div class="pop-up-text">
@@ -253,7 +255,7 @@
           </div>
         </div>  
 
-        <div id="pop-up-overlay"></div>
+        <div class="pop-up-overlay"></div>
 
         <!-- end of item 6-->
 
@@ -269,7 +271,7 @@
             <p>As the second tallest tower of the Basílica, standing at 138 metres, this central tower is dedicated to the Virgin Mary and can be identified by its embellishment of a morning star.</p>
           </div>
         
-          <button data-popup-target="#modal5">Read More</button>
+          <button data-popup-target="#modal5" aria-label="Read more about The Virgin Mary Tower" >Read More</button>
             
         </div>
           
@@ -279,7 +281,7 @@
             <div class="pop-up-img">
               <img src = "images/TheVirginMaryTower.png" alt = "The Virgin Mary Tower">
             </div>   
-            <button data-close-button class="pop-up-close-button">&times;</button>
+            <button data-close-button class="pop-up-close-button"  aria-label="Close the Details">&times;</button>
           </div>
           
           <div class="pop-up-text">
@@ -295,7 +297,7 @@
           </div>
         </div>  
 
-        <div id="pop-up-overlay"></div>
+        <div class="pop-up-overlay"></div>
 
         <!-- end of item 5-->
 
@@ -312,7 +314,7 @@
             <p>At the centre of it all is the main central tower, dedicated to Jesus Christ himself. It is also the tallest tower at 172.5 metres in height–well above any of the others, designed in accordance with Gaudí's original concept of hierarchically representing the divine.</p>
           </div>
         
-          <button data-popup-target="#modal4">Read More</button>
+          <button data-popup-target="#modal4" aria-label="Read more about The Jesus Tower">Read More</button>
             
         </div>
           
@@ -322,7 +324,7 @@
             <div class="pop-up-img">
               <img src = "images/TheJesusTower.png" alt = "The Jesus Tower">
             </div>   
-            <button data-close-button class="pop-up-close-button">&times;</button>
+            <button data-close-button class="pop-up-close-button"  aria-label="Close the Details">&times;</button>
           </div>
           
           <div class="pop-up-text">
@@ -340,7 +342,7 @@
           </div>
         </div>  
 
-        <div id="pop-up-overlay"></div>
+        <div class="pop-up-overlay"></div>
 
         <!-- end of item 4-->
 
@@ -355,7 +357,7 @@
             <h3>The Crypt</h3>
             <p>Years before the Basílica’s construction in 1882, even before Antoni Gaudí had joined for the construction of the main cathedral, the Crypt was developed by Francisco de Paula del Villar as the first part of the initial Temple project.</p>
           </div>
-          <button data-popup-target="#modal7">Read More</button>
+          <button data-popup-target="#modal7" aria-label="Read more about The Crypt">Read More</button>
             
         </div>
           
@@ -365,7 +367,7 @@
             <div class="pop-up-img">
               <img src = "images/TheCrypt.png" alt = "The Crypt">
             </div>   
-            <button data-close-button class="pop-up-close-button">&times;</button>
+            <button data-close-button class="pop-up-close-button"  aria-label="Close the Details">&times;</button>
           </div>
           
           <div class="pop-up-text">
@@ -380,7 +382,7 @@
           </div>
         </div>  
 
-        <div id="pop-up-overlay"></div>
+        <div class="pop-up-overlay"></div>
 
         <!-- end of item 7-->
   
@@ -395,7 +397,7 @@
     <div class = "blog-content"  id="blog-selection-timeline">
 
       <!-- item 1-->
-        <div class = "blog-item" id="blog-timeline">
+        <div class = "blog-item" >
           <div class = "blog-img">
             <img src = "images/blog-p-1.jpg" alt = "">
           </div>
@@ -409,7 +411,7 @@
         <!-- end of item 1-->
 
         <!-- item 2-->
-        <div class = "blog-item" id="blog-timeline">
+        <div class = "blog-item" >
           <div class = "blog-img">
             <img src = "images/blog-p-2.jpg" alt = "">
           </div>
@@ -423,7 +425,7 @@
         <!-- end of item 2-->
 
         <!-- item 3-->
-        <div class = "blog-item" id="blog-timeline">
+        <div class = "blog-item" >
           <div class = "blog-img">
             <img src = "images/blog-p-3.jpg" alt = "">
           </div>
@@ -437,7 +439,7 @@
         <!-- end of item 3-->
 
         <!-- item 4-->
-        <div class = "blog-item" id="blog-timeline">
+        <div class = "blog-item" >
           <div class = "blog-img">
             <img src = "images/blog-p-4.jpg" alt = "">
           </div>
@@ -451,7 +453,7 @@
         <!-- end of item 4-->
 
         <!-- item 5-->
-        <div class = "blog-item" id="blog-timeline">
+        <div class = "blog-item" >
           <div class = "blog-img">
             <img src = "images/blog-p-5.jpg" alt = "">
           </div>
@@ -465,7 +467,7 @@
         <!-- end of item 5-->
         
         <!-- item 6-->
-        <div class = "blog-item" id="blog-timeline">
+        <div class = "blog-item" >
           <div class = "blog-img">
             <img src = "images/blog-p-6.jpg" alt = "">
           </div>
@@ -479,7 +481,7 @@
         <!-- end of item 6-->
 
         <!-- item 7-->
-        <div class = "blog-item" id="blog-timeline">
+        <div class = "blog-item" >
           <div class = "blog-img">
             <img src = "images/blog-p-6.jpg" alt = "">
           </div>
@@ -494,6 +496,7 @@
   
     </div>
   </section>
+</main>
   <!-- end of blog -->
 
 
@@ -508,22 +511,23 @@
         <div class="text-block-footer" id="block2">
             <h3>Our pages</h3>
             <ul>
-                <li><a href="homepage.html">Home<span></span></a></li>
-                <li><a href="architecture.html">Architecture<span></span></a></li>
-                <li><a href="timeline.html">Timeline<span></span></a></li>
-                <li><a href="about.html">About Us<span></span></a></li>
-                <li><a href="contact.html">Contact<span></span></a></li>
-                <li><a href="terms.html">Terms and Conditions<span></span></a></li>
-            </ul>
+              <li><a href="homepage.html" aria-label="Link to Homepage">Home<span></span></a></li>
+              <li><a href="architecture.html" aria-label="Link to Architecture page">Architecture<span></span></a></li>
+              <li><a href="timeline.html" aria-label="Link to Timeline page">Timeline<span></span></a></li>
+              <li><a href="blog.html" aria-label="Link to Blog page">Blog<span></span></a></li>
+              <li><a href="about.html" aria-label="Link to About us page">About Us<span></span></a></li>
+              <li><a href="contact.html" aria-label="Link to Contact page">Contact<span></span></a></li>
+              <li><a href="terms.html" aria-label="Link to Terms and Conditions page">Terms and Conditions<span></span></a></li>
+          </ul>
         </div>
         <div class="text-block-footer" id="block3">
             <h3>Social media</h3>
-            <a class="socialmedia" href="https://twitter.com/sagradafamilia/status/1185124497470439426" target="_blank">
-                <img src="images/x.png" alt="X Logo with Link to x"></a>
-            <a class="socialmedia" href="https://www.instagram.com/basilicasagradafamilia/" target="_blank">
-                <img src="images/ig.png" alt="Instagram Logo with Link to Instagram"></a>
-            <a class="socialmedia" href="https://www.facebook.com/BasilicadelaSagradaFamilia/" target="_blank">
-                <img src="images/facebook.png" alt="facebook Logo with Link to facebook"></a>
+            <a class="socialmedia" href="https://twitter.com/sagradafamilia/status/1185124497470439426" target="_blank" aria-label="Link to X">
+              <img src="images/x.png" alt="X Logo with Link to x"></a>
+            <a class="socialmedia" href="https://www.instagram.com/basilicasagradafamilia/" target="_blank" aria-label="Link to Instagram">
+              <img src="images/ig.png" alt="Instagram Logo with Link to Instagram"></a>
+            <a class="socialmedia" href="https://www.facebook.com/BasilicadelaSagradaFamilia/" target="_blank" aria-label="Link to facebook">
+              <img src="images/facebook.png" alt="facebook Logo with Link to facebook"></a>
             <div class="button-container">
                 <button class="button-dark" onclick="redirectToPage('https://giving.sagradafamilia.org/puntual?lang=en')">Donate</button>
                 <button class="button-dark" onclick="redirectToPage('https://giving.sagradafamilia.org/puntual?lang=en')">Tickets</button>
@@ -531,8 +535,6 @@
         </div>
     </div>
 </footer>
-
-<body>
     
 </body>
 </html>
