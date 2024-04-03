@@ -17,26 +17,27 @@
 
 <body>
     <header>
+        <a href="#main" class="skip">Skip to main content</a>
+        <script src="https://cdn.userway.org/widget.js" data-account="nY3cImFAaN"></script>
         <nav class="navbar">
-            <div class="logo"><a href="homepage.html"><img src="images/ESSDG_Logo.png" alt="Logo" class="logo-img"></a></div>
-            <button class="menu-toggle" onclick="toggleMenu()">
-                <label for="toggle"></label>
-                <div class="menu">
-                    <ul>
-                        <li><a href="homepage.html">Home</a></li>
-                        <li><a href="architecture.html">Architecture</a></li>
-                        <li><a href="timeline.html">Timeline</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="terms.html">Terms and Conditions</a></li>
-                    </ul>
-                </div>
-            </button>
+            <div class="logo"><a href="homepage.html" aria-label="Return to Homepage" ><img src="images/ESSDG_Logo.png" alt="Logo" class="logo-img"></a></div>       
+            <button class="menu-toggle" onclick="toggleMenu()" aria-controls="menuContent" aria-expanded="false" aria-label="Toggle menu"></button>
+            <!-- <label for="toggle"></label> -->
+            <div class="menu" id="menuContent">
+                <ul>
+                    <li><a href="homepage.html" aria-label="Link to Homepage" >Home</a></li>
+                    <li><a href="architecture.html" aria-label="Link to Architecture page">Architecture</a></li>
+                    <li><a href="timeline.html" aria-label="Link to Timeline page">Timeline</a></li>
+                    <li><a href="blog.html" aria-label="Link to Blog page">Blog</a></li>
+                    <li><a href="about.html" aria-label="Link to About us page">About Us</a></li>
+                    <li><a href="contact.html" aria-label="Link to Contact page">Contact</a></li>
+                    <li><a href="terms.html" aria-label="Link to Terms and Conditions page">Terms and Conditions</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
 
-      
+<main id="main">
     <!-- Banner -->
 <section class="banner_about" id="banner_about">
     <div class="headlines">
@@ -51,7 +52,7 @@
             <span>Marketing Manager<br>Content and Research</span>
             <h3>Goda Vertelkaite</h3>
         </div>
-        <button expand-btn="overlayGoda">+</button>
+        <button expand-btn="overlayGoda" aria-label="Expand team member details" aria-expanded="false" >+</button>
         <div class="expanded-overlay" id="overlayGoda">
             <!-- Expanded overlay content -->
             <div class="expanded-overlay-content">
@@ -80,7 +81,7 @@
             </span>
             <h3>Augustina Vornehm</h3>
         </div>
-        <button expand-btn="overlayAugus">+</button>
+        <button expand-btn="overlayAugus" aria-label="Expand team member details" aria-expanded="false" >+</button>
         <div class="expanded-overlay" id="overlayAugus">
             <!-- Expanded overlay content -->
             <div class="expanded-overlay-content">
@@ -111,7 +112,7 @@
             </span>
             <h3>Birte Neubauer</h3>
         </div>
-        <button expand-btn="overlayBirte">+</button>
+        <button expand-btn="overlayBirte" aria-label="Expand team member details" aria-expanded="false" >+</button>
         <div class="expanded-overlay" id="overlayBirte">
             <!-- Expanded overlay content -->
             <div class="expanded-overlay-content">
@@ -142,7 +143,7 @@
             </span>
             <h3>Nimish KC</h3>
         </div>
-        <button expand-btn="overlayNimish">+</button>
+        <button expand-btn="overlayNimish" aria-label="Expand team member details" aria-expanded="false" >+</button>
         <div class="expanded-overlay" id="overlayNimish">
             <!-- Expanded overlay content -->
             <div class="expanded-overlay-content">
@@ -170,7 +171,7 @@
             </span>
             <h3>Xinchen Zhu</h3>
         </div>
-        <button expand-btn="overlayMarina">+</button>
+        <button expand-btn="overlayMarina" aria-label="Expand team member details" aria-expanded="false" >+</button>
         <div class="expanded-overlay" id="overlayMarina">
             <!-- Expanded overlay content -->
             <div class="expanded-overlay-content">
@@ -303,7 +304,7 @@
     </div>
         
 </section>
-
+</main>    
 
 
     <!-- Footer -->
@@ -316,21 +317,22 @@
             <div class="text-block-footer" id="block2">
                 <h3>Our pages</h3>
                 <ul>
-                    <li><a href="homepage.html">Home<span></span></a></li>
-                    <li><a href="architecture.html">Architecture<span></span></a></li>
-                    <li><a href="timeline.html">Timeline<span></span></a></li>
-                    <li><a href="about.html">About Us<span></span></a></li>
-                    <li><a href="contact.html">Contact<span></span></a></li>
-                    <li><a href="terms.html">Terms and Conditions<span></span></a></li>
+                    <li><a href="homepage.html" aria-label="Link to Homepage">Home<span></span></a></li>
+                    <li><a href="architecture.html" aria-label="Link to Architecture page">Architecture<span></span></a></li>
+                    <li><a href="timeline.html" aria-label="Link to Timeline page">Timeline<span></span></a></li>
+                    <li><a href="blog.html" aria-label="Link to Blog page">Blog<span></span></a></li>
+                    <li><a href="about.html" aria-label="Link to About us page">About Us<span></span></a></li>
+                    <li><a href="contact.html" aria-label="Link to Contact page">Contact<span></span></a></li>
+                    <li><a href="terms.html" aria-label="Link to Terms and Conditions page">Terms and Conditions<span></span></a></li>
                 </ul>
             </div>
             <div class="text-block-footer" id="block3">
                 <h3>Social media</h3>
-                <a class="socialmedia" href="https://twitter.com/sagradafamilia/status/1185124497470439426" target="_blank">
+                  <a class="socialmedia" href="https://twitter.com/sagradafamilia/status/1185124497470439426" target="_blank" aria-label="Link to X">
                     <img src="images/x.png" alt="X Logo with Link to x"></a>
-                <a class="socialmedia" href="https://www.instagram.com/basilicasagradafamilia/" target="_blank">
+                <a class="socialmedia" href="https://www.instagram.com/basilicasagradafamilia/" target="_blank" aria-label="Link to Instagram">
                     <img src="images/ig.png" alt="Instagram Logo with Link to Instagram"></a>
-                <a class="socialmedia" href="https://www.facebook.com/BasilicadelaSagradaFamilia/" target="_blank">
+                <a class="socialmedia" href="https://www.facebook.com/BasilicadelaSagradaFamilia/" target="_blank" aria-label="Link to facebook">
                     <img src="images/facebook.png" alt="facebook Logo with Link to facebook"></a>
                 <div class="button-container">
                     <button class="button-dark" onclick="redirectToPage('https://giving.sagradafamilia.org/puntual?lang=en')">Donate</button>
