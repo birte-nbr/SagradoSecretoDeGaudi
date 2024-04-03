@@ -13,25 +13,61 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function toggleOverlay(button, overlay) {
-        if (overlay.classList.contains('active')) {
-            overlay.classList.remove('active');
-            button.textContent = '+';
-        } else {
-            closeAllOverlays();
+        const isOpen = overlay.classList.contains('active');
+    
+        closeAllOverlays(); // Close all overlays first
+    
+        if (!isOpen) {
             overlay.classList.add('active');
             button.textContent = '-';
+            button.style.color = '#fff';
+            button.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'; // Change button color to black when clicked
+            overlay.style.opacity = '0'; // initial opacity 0
+            overlay.style.transform = 'translateY(100%)';
+            overlay.offsetHeight; // Trigger reflow to ensure CSS transition will be applied, otherwise no ease in effect
+            overlay.style.opacity = '1'; // Fade in effect
+            overlay.style.transform = 'translateY(40%)'; // Slide the overlay into view from the bottom (height to 40%)
+    
+            // Move the member image upwards by 40% with ease-in effect
+            const memberImage = button.parentElement.querySelector('.member-photo');
+            memberImage.style.transition = 'transform 0.5s ease-in-out';
+            memberImage.style.transform = 'translateY(-25%)';
+    
+            // Hide the h1 and h2 elements
+            const headlines = document.querySelector('.headlines');
+            headlines.style.opacity = '0';
         }
     }
-
+    
     function closeAllOverlays() {
         expandedOverlays.forEach(overlay => {
-            overlay.classList.remove('active');
+            if (overlay.classList.contains('active')) {
+                overlay.style.opacity = '0'; // Start the fade-out animation
+                overlay.style.transform = 'translateY(100%)'; // Start the slide-out animation
+                setTimeout(() => {
+                    overlay.classList.remove('active'); // Remove the active class after the animation completes
+                }, 500); // Adjust the timeout to match the duration of the transition
+            }
         });
+        // Show the h1 and h2 elements
+        const headlines = document.querySelector('.headlines');
+        headlines.style.opacity = '1';
+    
+        // Move the member images back to their original positions with ease-out effect
         expandButtons.forEach(button => {
+            const memberImage = button.parentElement.querySelector('.member-photo');
+            memberImage.style.transition = 'transform 0.5s ease-in-out';
+            memberImage.style.transform = 'translateY(0)';
+            
             button.textContent = '+';
+            button.style.color = '#fff';
+            button.style.backgroundColor = 'rgba(255, 255, 255, 0.5)'; // Reset button color to white
         });
     }
+        
+    
 });
+
 
 // Interactive Timeline Scroller
 // Timeline
