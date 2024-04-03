@@ -140,31 +140,12 @@
                         <input type="range" class="slider form-range" id="model-rotate-speed" name="model-rotate-speed"
                             onchange="setRotateSpeedOfModel();" min="-1000" max="1000" value="100">
                     </div>
-                    <div class="options-container-box" id="model-chooser">
-                        Selection of model
-                        <template id="model-select">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" id="model1" name="switch-model"
-                                    value="Erhöhter Kontrast" checked onchange="switchModelExample();">
-                                <label for="model1" class="form-label"></label>
-                            </div>
-                        </template>
-                    </div>
                     <div class="options-container-box">
                         <input type="checkbox" class="form-check-input" name="show-annotations" id="show-annotations"
                             onchange="setShowAnnotations();" checked>
                         <label for="show-annotations" class="form-label">show annotations</label>
                     </div>
-                    <div class="options-container-box" id="variant-chooser">
-                        Selection of variations
-                        <template id="variant-select">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" id="model1" name="switch-variant"
-                                    value="Erhöhter Kontrast" onchange="switchVariantExample();">
-                                <label for="model1" class="form-label"></label>
-                            </div>
-                        </template>
-                    </div>
+                  
 
 
                 </div>
@@ -238,21 +219,12 @@
                 interaction-prompt-style="basic" alt="A 3D model of the Basílica de la Sagrada Familía.">-->
                 <model-viewer id="Basílica-de-la-Sagrada-Familía" class="model-box" camera-orbit="180deg 0 60%"
                     min-camera-orbit="-Inf Inf auto" max-camera-orbit="-Inf Inf auto" camera-target="0 0 0"
-                    src="models/sagrada-final.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls
+                    src="models/sagrada-final.glb" camera-controls
                     tone-mapping="commerce" poster="models/cathedral.webp" shadow-intensity="1.27"
                     environment-image="legacy" exposure="1.14" reveal="manual" shadow-softness="0.57" camera-controls
                     auto-rotate-delay="0" alt="A 3D model of the Basílica de la Sagrada Familía.">
                     <div id="lazy-load-poster" slot="poster"></div>
                     <button id="button-load" slot="poster" type="button" class="button-dark">Load 3D model</button>
-                    <!-- old hotspot style 
-                    button 1 with opacity feature<button class="Hotspot" slot="hotspot-1"
-                    data-position="0.5122817105027573m 0.14810949555402875m -7.041559307033434m"
-                    data-normal="0m 0.000793157988001149m -0.9999996854501536m"
-                    data-orbit="-90.94862deg 84.56856deg 0.0793157988001149m"
-                    data-target="1.122817105027573m 1.14810949555402875m -7.041559307033434m" data-zoom="25deg"
-                    data-visibility-attribute="visible">
-                    <div class="HotspotAnnotation">Nativity Façade</div>
-                </button>-->
                     <button class="Hotspot" slot="hotspot-1"
                         data-position="-2.384867731750965m -0.3311009164701808m -1.853318706883946m"
                         data-normal="-1.5099578831723023e-7m 0m 0.9999999999999888m"
@@ -271,9 +243,8 @@
                         data-position="3.6664163968952845m 3.3558024338023027m -2.5915328804397877m"
                         data-normal="0.9999347956709038m 0.007822071199221929m -0.008319832254458506m"
                         data-target="3.6664163968952845m 3.3558024338023027m -2.5915328804397877m"
-                        data-orbit="110deg 60deg 2m" data-zoom="20deg" data-visibility-attribute="visible"
-                        data-material="3">
-                        <div class="HotspotAnnotation">Glory Façade</div>
+                        data-orbit="110deg 60deg 2m" data-zoom="20deg" data-visibility-attribute="visible">
+                        <div class="HotspotAnnotation" data-material="3">Glory Façade</div>
                     </button>
                     <button class="Hotspot" slot="hotspot-4"
                         data-position="-2.6130948838359354m 5.702583848720181m -2.4778849420459537m"
@@ -309,10 +280,11 @@
                     <button class="forward" id="next" onclick="skipForward()"><span
                             class="arrow">&#129130;</span></button>
                     <div class="textbox" id="textbox-1">
+                        <img src="images/cryp.jpg" width="325" height="244" alt="The Crypt">
                         <h4>The Crypt (1882 - 1889)</h4>
                         <p>Underneath the Basílica and extending <b>10 metres</b> below the ground, lies the cathedral’s very
                             own Crypt. It is the very first development of the project, even preceding the years that
-                            Antoni Gaudí had joined for its construction.
+                            <b>Antoni Gaudí</b> had joined for its construction.
                         </p>
                         <p>
                             When Gaudí took over, he made multiple adjustments, yet stayed true to the original design.
@@ -320,13 +292,13 @@
                         <p>
                             It is now known as Antoni Gaudí's place of rest, having been buried there upon his death in <b>1926</b>.
                         </p>
-                        <p>Read more about the Crypt <a href="blog.html">here</a>.</p> <!--augus-->
+                        <p>Read more about the Crypt <a href="blog.html#blog-selection-architecture">here</a>.</p> 
                         <br>
                         <br>
                         <button class="close" id="1"><span class="cross">&#10006;</span></button>
                     </div>
                     <div class="textbox" id="textbox-2">
-                        <!--<img src="img/pas.png" width="325" height="200" style="border-radius: 10%;" alt="Passion Façade">-->
+                        <img src="images/pas.jpg" width="325" height="244" alt="Passion Façade">
                         <h4>The Passion Façade (1954 - 1976)</h4>
                         <p>In the western direction, lies the stark and extraordinary Passion façade.</p>
                         <p>Representing both <b>Jesus’ death and resurrection</b>, this angular façade has been said to
@@ -339,12 +311,13 @@
                         <p>When viewing the façade from left to right, you can observe the 4 bell towers dedicated to
                             <b>James the lesser, Bartholomew, Thomas, then Philip</b>.
                         </p>
-                        <p>Read more about the Passion façade <a href="blog.html">here</a>.</p> <!--augus-->
+                        <p>Read more about the Passion façade <a href="blog.html#blog-selection-architecture">here</a>.</p> 
                         <br>
                         <br>
                         <button class="close" id="2"><span class="cross">&#10006;</span></button>
                     </div>
                     <div class="textbox" id="textbox-3">
+                        <img src="images/glor.jpg" width="325" height="244" alt="Glory Façade">
                         <h4>The Glory Façade (2002 - today)</h4>
                         <p>The final façade, known as the Glory façade, is found facing the south. It is the only one of
                             which still <b>under construction</b> and will act as the main entrance to the Basílica upon its
@@ -360,14 +333,15 @@
                         <p>The 4 bell towers planned for this façade will represent the 4 remaining apostles: <b>Andrew,
                                 Peter, Paul, and James the Greater</b> (in order from left to right).
                         </p>
-                        <p>Read more about the Glory façade <a href="blog.html">here</a>.</p> <!--augus-->
+                        <p>Read more about the Glory façade <a href="blog.html#blog-selection-architecture">here</a>.</p> 
                         <br>
                         <br>
                         <button class="close" id="3" onclick="closeTextBox()"><span
                                 class="cross">&#10006;</span></button>
                     </div>
                     <div class="textbox" id="textbox-4">
-                        <h4>Virgin Mary Central Tower</h4>
+                        <img src="images/mary.jpg" width="325" height="244" alt="Virgin Mary Tower">
+                        <h4>Virgin Mary Central Tower (2016 - 2021)</h4>
                         <p>Located at the centre north of the Basílica, this central tower has been specially dedicated
                             to the <b>Virgin Mary</b>.
                         </p>
@@ -375,13 +349,14 @@
                             identified by its magnificent morning star embellishment–one that can be seen shining
                             luminously at night.
                         </p>
-                        <p>Read more about the Virgin Mary tower <a href="blog.html">here</a>.</p> <!--augus-->
+                        <p>Read more about the Virgin Mary tower <a href="blog.html#blog-selection-architecture">here</a>.</p> 
                         <br>
                         <br>
                         <button class="close" id="4"><span class="cross">&#10006;</span></button>
                     </div>
                     <div class="textbox" id="textbox-5">
-                        <h4>Jesus Christ Central Tower</h4>
+                        <img src="images/jes.jpg" width="325" height="244" alt="Jesus Christ Tower">
+                        <h4>Jesus Christ Central Tower (2016 - today)</h4>
                         <p>At the centre of it all stands the main central tower, dedicated to <b>Jesus Christ</b>
                             himself.
                         </p>
@@ -390,33 +365,34 @@
                             with a pinnacle of a “four-armed cross”, with added lights radiating in each of the cardinal
                             directions.
                         </p>
-                        <p>Read more about the Jesus Christ tower <a href="blog.html">here</a>.</p> <!--augus-->
+                        <p>Read more about the Jesus Christ tower <a href="blog.html#blog-selection-architecture">here</a>.</p> 
                         <br>
                         <br>
                         <button class="close" id="5"><span class="cross">&#10006;</span></button>
                     </div>
                     <div class="textbox" id="textbox-6">
-                        <h4>The Evangelists Towers</h4>
-                        <p>Surrounding the main central tower, these 4 towers all stand at 135 metres tall and have been
+                        <img src="images/ev.jpg" width="325" height="244" alt="Evangelist Towers">
+                        <h4>The Evangelists Towers (2016 - 2023)</h4>
+                        <p>Surrounding the main central tower, these 4 towers all stand at <b>135 metres</b> tall and have been
                             dedicated to each of the Evangelists: <b>Matthew, Mark, John, and Luke</b>.
                         </p>
                         <p>Each tower can be identified by a unique symbolic entity with wings:</p>
                         <ul>
-                            <li>Matthew is represented by an angel.</li>
-                            <li>Mark is represented by a lion.</li>
-                            <li>John is represented by an eagle.</li>
-                            <li>Luke is represented by an ox.</li>
+                            <li>- Matthew is represented by an angel.</li>
+                            <li>- Mark is represented by a lion.</li>
+                            <li>- John is represented by an eagle.</li>
+                            <li>- Luke is represented by an ox.</li>
                         </ul>
-                        <p>Read more about the Evangelists towers <a href="blog.html">here</a>.</p> <!--augus-->
+                        <p>Read more about the Evangelists towers <a href="blog.html#blog-selection-architecture">here</a>.</p> 
                         <br>
                         <br>
                         <button class="close" id="6"><span class="cross">&#10006;</span></button>
                     </div>
                     <div class="textbox" id="textbox-7">
-                        <img src="images/TheNativityFacade.png" width="325" height="185" alt="Nativity Façade">
+                        <img src="images/nat.jpg" width="325" height="244" alt="Nativity Façade">
                         <h4>The Nativity Façade (1894 - 1930)</h4>
 
-                        <p>On the east facing side lies the original Nativity façade–the <b>first façade</b>ever
+                        <p>On the east facing side lies the original Nativity façade–the <b>first façade</b> ever
                             constructed for the
                             Basilica de la Sagrada Família.</p>
                         <p>In accordance with the chronology of construction, this façade represents the <b>birth and
@@ -433,17 +409,11 @@
                             (when viewing them from left to right).</p>
                         <p>It is the only façade whose construction began in Antoni Gaudí’s lifetime. Read more about
                             the
-                            Nativity façade <a href="blog.html">here</a>.</p> <!--augus-->
+                            Nativity façade <a href="blog.html#blog-selection-architecture">here</a>.</p> 
                         <br>
                         <br>
                         <button class="close" id="7"><span class="cross">&#10006;</span></button>
                     </div>
-
-
-
-
-
-
                     <button class="back" id="last" onclick="skipBackward()"><span
                             class="arrow">&#129128;</span></button>
                 </div>

@@ -16,9 +16,6 @@ let models = [
 resizeModel();
 zoomModel();
 setAutoRotateModel();
-initModelSelector();
-//initVariantSelector();  leave out for now 
-//switchModelExample();
 zoomModel();
 setRotateSpeedOfModel();
 setOrbitSensitivityForModel();
@@ -26,60 +23,25 @@ setOrbitSensitivityForModel();
 
 
 // all functions are written here, most are for setting the model up (zoom, annotations, size, etc.)
-function initModelSelector() {
-	const parentElement = document.getElementById("model-chooser")
-	models.map(function (model) {
-		const template = document.getElementById("model-select").content;
-		const input = template.querySelector("input")
-		input.id = model.name;
-		input.value = model.name;
 
-		const label = template.querySelector("label")
-		label.setAttribute("for", model.name);
-		label.innerText = model.name;
-
-		return template.cloneNode(true);
-	}).forEach(function (element) {
-		parentElement.appendChild(element)
-	});
-}
-/*
-const defaultVariantChooserContent = document.getElementById("variant-chooser").innerHTML
-
-function initVariantSelector() {
-	const parentElement = document.getElementById("variant-chooser")
-	parentElement.innerHTML = defaultVariantChooserContent;
-	//	console.log(document.querySelector("#model-auto-mit-artefakten-texturiert"))
-	const viewer = document.querySelector("#Basílica-de-la-Sagrada-Familía")
-	viewer.availableVariants.map(function (variant) {
-		const template = document.getElementById("variant-select").content;
-		const input = template.querySelector("input")
-		input.id = variant
-		input.value = variant;
-
-		const label = template.querySelector("label")
-		label.setAttribute("for", variant);
-		label.innerText = variant;
-
-		const currentVariant = viewer.variantName === null ? viewer.availableVariants[0] : viewer.variantName
-		if (currentVariant === variant) {
-			input.checked = true;
-		}
-		else {
-			input.checked = false;
-		}
-
-		return template.cloneNode(true);
-	}).forEach(function (element) {
-		parentElement.appendChild(element)
-	});
-}*/
+//works for the most part, but introduces vertical scrollbar as well
+// might need adjustment for positioning of textboxarea
 function resizeModel() {
-	var new_height = document.getElementById("model-size").value;
-	var new_width = new_height * 1.5;
-	document.getElementById("Basílica-de-la-Sagrada-Familía").style.width = new_width + "px";
-	document.getElementById("Basílica-de-la-Sagrada-Familía").style.height = new_height + "px";
+    var new_height = parseInt(document.getElementById("model-size").value); // Parse input value as integer
+    var new_width = new_height * 1.5;
+    var modelViewer = document.getElementById("Basílica-de-la-Sagrada-Familía");
+
+    // Get the width of the grid column containing the model viewer
+    var gridColumnWidth = modelViewer.parentElement.offsetWidth;
+
+    // Adjust model viewer size
+    modelViewer.style.width = Math.min(new_width, gridColumnWidth) + "px"; // Limit width to column width
+    modelViewer.style.height = new_height + "px";
+
+    // Scroll to the right to see the rest of the grid if necessary
+    document.querySelector('.container1').scrollLeft = document.querySelector('.container1').scrollWidth;
 }
+
 
 async function zoomModel() {
 	var slider = document.getElementById("model-zoom");
@@ -115,35 +77,6 @@ async function setRotateSpeedOfModel() {
 	await reloadModel();
 }
 
-/*
-async function switchModelExample() {
-	for (const model of models) {
-		if (document.querySelector('input[name="switch-model"]:checked').value == model.name) {
-			console.log("switch model to " + model.name);
-			const viewer = document.querySelector('#Basílica-de-la-Sagrada-Familía');
-			//viewer.poster = model.poster;
-			document.querySelector("#lazy-load-poster").style.backgroundImage = "url(" + model.poster + ")";
-			viewer.querySelector("#button-load").innerText = "Load 3D model: " + model.name;
-			//viewer.showPoster();
-			viewer.setAttribute("src", model.filename);
-
-		}
-	}
-
-	await reloadModel();
-	initVariantSelector();
-}
-
-async function switchVariantExample() {
-	for (const variant of document.querySelector("#Basílica-de-la-Sagrada-Familía").availableVariants) {
-		if (document.querySelector('input[name="switch-variant"]:checked').value == variant) {
-			console.log("switch variant to " + variant);
-			document.querySelector('#Basílica-de-la-Sagrada-Familía').variantName = variant
-		}
-	}
-
-	await reloadModel();
-} */
 
 async function setOrbitSensitivityForModel() {
 	let new_orbit_sensitivity = document.getElementById("model-orbit-sensitivity").value;
@@ -286,6 +219,7 @@ let textbox = document.querySelectorAll(".textbox").forEach((textbox) => {
 
 // color model - does not work
 // there is never any color defined in the original model viewer set up
+/*
 const modelViewerColor = document.querySelector("model-viewer#color");
 
 document.querySelectorAll('#color-controls button').forEach((button) => {
@@ -296,10 +230,8 @@ document.querySelectorAll('#color-controls button').forEach((button) => {
 		material.pbrMetallicRoughness.setBaseColorFactor(colorString);
 	});
 });
-
-function handleColorHotspotClick(event) {
-	const colorString = event.target.dataset.color;
-	const meshId = event.target.dataset.meshId; // Add data-mesh-id attribute to your color buttons
+*/
+// Add data-mesh-id attribute to your color buttons
 	
         // Find the specific mesh material and update its color
         // const material = modelViewer.querySelector(`[mesh-id="${meshId}"]`).material;
@@ -310,7 +242,7 @@ function handleColorHotspotClick(event) {
     // document.querySelectorAll('.controls button').forEach((button) => {
     //     button.addEventListener('click', handleColorHotspotClick);
     // });
-}
+//}
 // event handlers for annotations
 
 document.querySelectorAll(".Hotspot").forEach(hotspot => {
@@ -338,12 +270,13 @@ document.querySelectorAll('.close').forEach((button) => {
 
 document.querySelectorAll('.Hotspot').forEach((hotspot) => {
 	hotspot.addEventListener('click', () => handleAnnotationClick(hotspot));
+
 	hotspot.addEventListener('click', (event) => {
 		const colorString = event.target.dataset.color;
 		const modelViewer = document.querySelector("model-viewer");
 		
 		
-		console.log(modelViewer.model.materials[0].pbrMetallicRoughness);
+		//console.log(modelViewer.model.materials[0].pbrMetallicRoughness);
 		 
 		for (let x = 0; x < 7; x++){
 			if (x === parseInt(event.target.dataset.material)) {
@@ -359,7 +292,12 @@ document.querySelectorAll('.Hotspot').forEach((hotspot) => {
 	});
 });
 
+/*
+function handleColorHotspotClick(event) {
+	const colorString = event.target.dataset.color;
+	const meshId = event.target.dataset.meshId; 
 
+}*/
 
 // dismiss poster once model is loaded 
 
@@ -368,10 +306,4 @@ document.querySelector('#button-load').addEventListener('click',
 		document.querySelector('#Basílica-de-la-Sagrada-Familía').dismissPoster();
 	});
 
-// currently not in use	
-/*
-document.querySelector("#Basílica-de-la-Sagrada-Familía").addEventListener("load", function () {
-	initVariantSelector();
-});
-*/
 
