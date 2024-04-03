@@ -13,27 +13,27 @@
 
 <body>
     <header>
+        <a href="#main" class="skip">Skip to main content</a>
+        <script src="https://cdn.userway.org/widget.js" data-account="nY3cImFAaN"></script>
         <nav class="navbar">
-            <div class="logo"><a href="homepage.html"><img src="images/ESSDG_Logo.png" alt="Logo" class="logo-img"></a></div>
-            <button class="menu-toggle" onclick="toggleMenu()">
-                <label for="toggle"></label>
-                <div class="menu">
-                    <ul>
-                        <li><a href="homepage.html">Home</a></li>
-                        <li><a href="architecture.html">Architecture</a></li>
-                        <li><a href="timeline.html">Timeline</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="terms.html">Terms and Conditions</a></li>
-                    </ul>
-                </div>
-            </button>
+            <div class="logo"><a href="homepage.html" aria-label="Return to Homepage" ><img src="images/ESSDG_Logo.png" alt="Logo" class="logo-img"></a></div>       
+            <button class="menu-toggle" onclick="toggleMenu()" aria-controls="menuContent" aria-expanded="false" aria-label="Toggle menu"></button>
+            <!-- <label for="toggle"></label> -->
+            <div class="menu" id="menuContent">
+                <ul>
+                    <li><a href="homepage.html" aria-label="Link to Homepage" >Home</a></li>
+                    <li><a href="architecture.html" aria-label="Link to Architecture page">Architecture</a></li>
+                    <li><a href="timeline.html" aria-label="Link to Timeline page">Timeline</a></li>
+                    <li><a href="blog.html" aria-label="Link to Blog page">Blog</a></li>
+                    <li><a href="about.html" aria-label="Link to About us page">About Us</a></li>
+                    <li><a href="contact.html" aria-label="Link to Contact page">Contact</a></li>
+                    <li><a href="terms.html" aria-label="Link to Terms and Conditions page">Terms and Conditions</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
 
     <!-- Banner -->
-
     <section class="banner">
         <h1>El Sagrado Secreto De Gaudí</h1>
             <button class="banner-left-arrow">
@@ -42,7 +42,6 @@
             <button class="banner-right-arrow">
                 <img src="images/arrow-right-black.png" alt="Right Arrow">
             </button>
-        </div>
         <div id="banner-left">
             <img src="images/architecture.png" alt="Sagrada Familia aquarell image representing architectural view" id="left-image">        
         </div>
@@ -51,13 +50,12 @@
         </div>
     </section>
     
-    
 
     <div class="filler2"></div>
     
 
     <!-- Other sections for homepage -->
-
+    <main id="main">
          <!-- Section innteractive timeline homepage -->
          <section class="section2">
             <div class="image-text-section">
@@ -195,21 +193,21 @@
             <form id="contact-form" action="submit.php" method="POST">
                 <div class="form-group">
                     <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" name="name" required aria-required="true">
                 </div>
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" required aria-required="true">
                 </div>
                 <div class="form-group">
                     <label for="message">Message:</label>
-                    <textarea id="message" name="message" rows="4" required></textarea>
+                    <textarea id="message" name="message" rows="4" required aria-required="true"></textarea>
                 </div>
                 <button type="submit">Submit</button>
             </form>
         </div>
     </section>
-
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -221,21 +219,22 @@
             <div class="text-block-footer" id="block2">
                 <h3>Content</h3>
                 <ul>
-                    <li><a href="homepage.html">Home<span></span></a></li>
-                    <li><a href="architecture.html">Architecture<span></span></a></li>
-                    <li><a href="timeline.html">Timeline<span></span></a></li>
-                    <li><a href="about.html">About Us<span></span></a></li>
-                    <li><a href="contact.html">Contact<span></span></a></li>
-                    <li><a href="terms.html">Terms and Conditions<span></span></a></li>
+                    <li><a href="homepage.html" aria-label="Link to Homepage">Home<span></span></a></li>
+                    <li><a href="architecture.html" aria-label="Link to Architecture page">Architecture<span></span></a></li>
+                    <li><a href="timeline.html" aria-label="Link to Timeline page">Timeline<span></span></a></li>
+                    <li><a href="blog.html" aria-label="Link to Blog page">Blog<span></span></a></li>
+                    <li><a href="about.html" aria-label="Link to About us page">About Us<span></span></a></li>
+                    <li><a href="contact.html" aria-label="Link to Contact page">Contact<span></span></a></li>
+                    <li><a href="terms.html" aria-label="Link to Terms and Conditions page">Terms and Conditions<span></span></a></li>
                 </ul>
             </div>
             <div class="text-block-footer" id="block3">
                 <h3>Social media</h3>
-                <a class="socialmedia" href="https://twitter.com/sagradafamilia/status/1185124497470439426" target="_blank">
+                <a class="socialmedia" href="https://twitter.com/sagradafamilia/status/1185124497470439426" target="_blank" aria-label="Link to X">
                     <img src="images/x.png" alt="X Logo with Link to x"></a>
-                <a class="socialmedia" href="https://www.instagram.com/basilicasagradafamilia/" target="_blank">
+                <a class="socialmedia" href="https://www.instagram.com/basilicasagradafamilia/" target="_blank" aria-label="Link to Instagram">
                     <img src="images/ig.png" alt="Instagram Logo with Link to Instagram"></a>
-                <a class="socialmedia" href="https://www.facebook.com/BasilicadelaSagradaFamilia/" target="_blank">
+                <a class="socialmedia" href="https://www.facebook.com/BasilicadelaSagradaFamilia/" target="_blank" aria-label="Link to facebook">
                     <img src="images/facebook.png" alt="facebook Logo with Link to facebook"></a>
                 <div class="button-container">
                     <button class="button-dark" onclick="redirectToPage('https://giving.sagradafamilia.org/puntual?lang=en')">Donate</button>
