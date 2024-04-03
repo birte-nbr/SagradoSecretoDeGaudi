@@ -61,6 +61,28 @@ h3 {
     font-size: 1.875rem;
 }
 
+.headlines {
+    display: grid;
+    position: absolute;
+    left: 50%;
+    text-align: center;
+    transform: translateX(-50%); /*center horizontally */
+    z-index: 1;
+    padding: 0.6rem;
+    color: #fff;
+    column-gap: 0.625rem;
+}
+
+    .headlines h1 {
+        grid-template-columns: 1;
+        grid-row: 1;
+    }
+
+    .headlines h2 {
+        grid-template-columns: 1;
+        grid-row: 2;
+    }
+
 span {
     margin: 0;
     font-family: 'Poppins';
@@ -75,7 +97,7 @@ span {
     justify-content: space-between;
     align-items: center;
     padding: 0 1.5625rem;
-    background-color: rgba(242, 244, 243, 0.3);
+    /*background-color: rgba(242, 244, 243, 0.3);*/
 }
 
 /*Logo in nav bar*/
@@ -259,56 +281,210 @@ span {
         }
     
 .banner_about {
-    height: 90vh;
+    height: 100vh;
     display: flex;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
     position: relative;
-    overflow: hidden;
+    display: grid;
+    gap: 0;
+}
+
+.banner_about::after{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
 }
         
-    .banner_about h1 {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        text-align: center;
-        transform: translateX(-50%); /*center horizontally */
-        z-index: 1;
-        font-size: 4.375rem;
-        background-color: rgba(255, 255, 255, 0.7); /*semi-transparent background for readability/accessibility */
-        border-radius: 8px;
-        padding: 0.6rem;
+    #person1 {
+        grid-row: span 2;
+        grid-column: 1;
+    }
+
+    #person2 {
+        grid-row: span 2;
+        grid-column: 2;
+    }
+
+    #person3 {
+        grid-row: span 2;
+        grid-column: 3;
+    }
+
+    #person4 {
+        grid-row: span 2;
+        grid-column: 4;
+    }
+
+    #person5 {
+        grid-row: span 2;
+        grid-column: 5;
     }
   
-    
-    .person {
-        position: absolute;
-        height: 100%;
+    .team-member {
+        position: relative;
+        height: cover;
+        display: inline-block;
         overflow: hidden;
-        width: 20%; /* Initial width */
-        transition: width 0.5s ease;
+        transition: width 0.5s ease-in-out, left 0.5s ease-in-out;
     }
-    
-    .person img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-    .person:hover {
-        width: 35%; /* Expand hovered image */
-        z-index: 1;
-        transition: 1s;
-    }
-    
-    #person1 { left: 0; }
-    #person2 { left: 20%; }
-    #person3 { left: 40%; }
-    #person4 { right: 20%; }
-    #person5 { right: 0; }
-    
+      
+        .member-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;      
+        }
 
+        .member-intro {
+            position: absolute;
+            bottom: 10%;
+            left: 5%;
+            z-index: 2;
+            color: #fff;
+        }
+
+            .member-intro span {
+                width: 100%;
+            }
+      
+            .member-intro h3 {
+                width: 100%;
+            }
+
+            .member-intro p {
+                width: 100%;
+            }
+
+        .expanded{
+            left: 0;
+            z-index: 3;
+            position: relative;
+            transition: width 0.7s ease-in-out, left 0.7s ease-in-out;
+            overflow: hidden;
+            width: 100%;
+        }
+        
+        
+        button[expand-btn] {
+            position: absolute;
+            bottom: 5%;
+            right: 50%;
+            z-index: 3;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 20px;
+        }
+        
+        button[expand-btn]:hover {
+            transform: scale(1.2);
+        }
+        
+
+            .expanded-overlay {
+                display: none; /* Hide the overlay by default */
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(255, 255, 255, 0.8);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                padding: 20px;
+                box-sizing: border-box;
+                z-index: 2;
+            }
+
+            .expanded-overlay.active {
+                display: block;
+            }
+                
+
+            .expanded-overlay-close-button {
+                cursor: pointer;
+                border: none;
+                outline: none;
+                background: none;
+                font-size: 1.8rem;
+                font-weight: bold;
+                align-self: flex-start;
+                position: absolute;
+                top: 0; 
+                right: 0; 
+                margin-top: 6.25rem;
+                margin-right: 3.125rem;
+            }
+
+                .expanded-overlay-close-button:hover {
+                    transform: scale(1.2);
+                }
+                
+            .expanded-overlay-text {
+                margin-top: 1.5625rem;
+            }
+            
+                .expanded-overlay-text span {
+                    font-weight: 300;
+                    display: block;
+                    padding-bottom: 0.5rem;
+                }
+                
+                .expanded-overlay-text p {
+                    font-weight: 300;
+                    padding-bottom: 1.2rem;
+                    padding-top: 1.5625rem;
+                    line-height: 1.6;
+                }
     
+        #expanded-overlay-action {
+            display: none;
+            position: fixed;
+            opacity: 0;
+            transition: 200ms ease-in-out;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, .5);
+            pointer-events: none;
+        }
+
+        #expanded-overlay-action.active {
+            display: grid;
+            opacity: 1;
+            pointer-events: all;
+        }
+            
+
+#overlayGoda {
+    grid-column: 1;
+}
+
+#overlayAugus {
+    grid-column: 2;
+}
+
+#overlayBirte {
+    grid-column: 3;
+}
+
+#overlayNimish {
+    grid-column: 4;
+}
+
+#overlayMarina {
+    grid-column: 5;
+}
+   
+
+
 .banner_subpages {
     height: 90vh;
     background-size: contain;
@@ -415,7 +591,7 @@ span {
 
 .image-text-section {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 1fr 1fr;
     grid-gap: 50px;
     overflow: hidden;
 }
@@ -436,7 +612,15 @@ span {
         align-items: center;
     }
 
+        #vision img {
+            width: 30%;
+            height: 100%;
+            object-fit: cover;
+            transform: translateX(100%);
+        }
+
         .image-wrapper-right img {
+            grid-column: 2;
             width: 100%;
             height: auto;
             object-fit: cover;
@@ -819,18 +1003,22 @@ footer h2{
     .socialmedia img {
         width: 40px;
         height: 40px;
+        transition: ease;
     }
 
         .socialmedia:hover img[src="images/x.png"] {
             content: url('images/x_blue.png');
+            transform: scale(1.2);
         }
 
         .socialmedia:hover img[src="images/ig.png"] {
             content: url('images/ig_blue.png');
+            transform: scale(1.2);
         }
 
         .socialmedia:hover img[src="images/facebook.png"] {
             content: url('images/facebook_blue.png');
+            transform: scale(1.2);
         }
 
     
