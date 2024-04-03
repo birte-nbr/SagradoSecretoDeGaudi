@@ -1,4 +1,37 @@
 //Augus' part on overall website functionality
+//About us banner
+document.addEventListener('DOMContentLoaded', function() {
+    const expandButtons = document.querySelectorAll('[expand-btn]');
+    const expandedOverlays = document.querySelectorAll('.expanded-overlay');
+
+    expandButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const overlayId = button.getAttribute('expand-btn');
+            const overlay = document.getElementById(overlayId);
+            toggleOverlay(button, overlay);
+        });
+    });
+
+    function toggleOverlay(button, overlay) {
+        if (overlay.classList.contains('active')) {
+            overlay.classList.remove('active');
+            button.textContent = '+';
+        } else {
+            closeAllOverlays();
+            overlay.classList.add('active');
+            button.textContent = '-';
+        }
+    }
+
+    function closeAllOverlays() {
+        expandedOverlays.forEach(overlay => {
+            overlay.classList.remove('active');
+        });
+        expandButtons.forEach(button => {
+            button.textContent = '+';
+        });
+    }
+});
 
 // Interactive Timeline Scroller
 // Timeline
@@ -217,4 +250,4 @@ document.getElementById("contact-form").addEventListener("submit", function(even
    
 
 
-//Nimish's and Birte's part on interactve model
+
