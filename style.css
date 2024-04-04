@@ -1988,6 +1988,7 @@ section {
 	position: relative;
 }
 
+/* Adjustments by Augus */
 /* textboxes pop-up */
 .textbox {
 	display: none;
@@ -1999,27 +2000,46 @@ section {
 	overflow-x: hidden;
     transition: transform 0.3s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-    
-	
 }
+
+.textbox:before {
+    position: absolute;
+    top: 90%;
+    width: 100%;
+    height: 10%;
+    content: "";
+    z-index: 1;
+    border-radius: 8px;
+    box-shadow: 2px 4px rgba(255, 255, 255, 0.5);
+    left: 0;
+    background: #223581;
+}
+
 
 .textbox p {
 	color: #f2f4f3;
-    padding: 2%
+    padding: 1.5625rem 1.5625rem 1rem 1.5625rem;
 }
 p#final {
     margin-bottom: 15%;
 }
 .textbox h4 {
 	color: #f2f4f3;
-    padding: 2%
+    padding: 1.5625rem 1.5625rem 0 1.5625rem;
 }
+
 .textbox a {
     color: #f2f4f3;
+    padding: 1.5625rem;
+    
 }
 .textbox li {
     color: #f2f4f3;
+    padding: 0 1.5625rem 0 1.5625rem;
 }
+
+
+/* Adjustments by Augus */
 .close {
 	position: absolute;
 	background-color: #ffffff; 
@@ -2038,10 +2058,8 @@ p#final {
 
   .forward, .back {
 	position: absolute;
-    top: 94%; 
-    right: 10%;
+    top: 95%; 
     transform: translateY(-50%);
-	
 	width: 30px;
 	height: 30px;
 	background-color: #ffffff; 
@@ -2053,18 +2071,25 @@ p#final {
 	align-items: center;
   }
 
-#last {
-left: 5%;
-}
-
-  
-  .cross, .arrow{
-	color: #223581; 
-	font-size: 20px;
+  .forward {
+    right: 5%;
+    z-index: 2;
   }
 
-  
-  
+  .back {
+    left: 5%;
+    z-index: 2;
+  }
+
+  .cross{
+	color: #223581; 
+	font-size: 1.2rem;
+    font-weight: lighter;
+  }
+
+  .cross:hover {
+    transform: scale(1.2);
+  }
 
 /* navigation line */
 

@@ -340,9 +340,19 @@
                     </button>
 
                 </model-viewer>
+
                 <div class="textbox-area">
-                    <button class="forward" id="next" onclick="skipForward()"><span
-                            class="arrow">&#129130;</span></button>
+
+                    <div class="textbox-buttons">
+                        <button class="forward" id="next" onclick="skipForward()">
+                            <span class="arrow"> &#10095;</span>
+                        </button>
+                    
+                        <button class="back" id="last" onclick="skipBackward()"><span
+                            class="arrow">&#10094;</span>
+                        </button>
+                    </div>
+
                     <div class="textbox" id="textbox-1">
                         <img src="images/cryp.jpg" width="325" height="244" alt="The Crypt">
                         <h4>The Crypt (1882 - 1889)</h4>
@@ -357,7 +367,7 @@
                             It is now known as Antoni Gaudí's place of rest, having been buried there upon his death in <b>1926</b>.
                         </p>
                         <p id="final">Read more about the Crypt <a href="blog.html#blog-selection-architecture">here</a>.</p> 
-                        <button class="close" id="1"><span class="cross">&#10006;</span></button>
+                        <button class="close" id="1"><span class="cross">x</span></button>
                     </div>
                     <div class="textbox" id="textbox-2">
                         <img src="images/pas.jpg" width="325" height="244" alt="Passion Façade">
@@ -462,10 +472,12 @@
                         <p id="final">It is the only façade whose construction began in Antoni Gaudí’s lifetime. Read more about
                             the
                             Nativity façade <a href="blog.html#blog-selection-architecture">here</a>.</p>
+                        
                         <button class="close" id="7"><span class="cross">&#10006;</span></button>
+
                     </div>
-                    <button class="back" id="last" onclick="skipBackward()"><span
-                            class="arrow">&#129128;</span></button>
+                   
+
                 </div>
 
                 
