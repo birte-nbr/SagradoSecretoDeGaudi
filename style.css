@@ -862,7 +862,7 @@ button[data-popup-target] {
 
 .button-container {
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-end;
     gap: 20px;
 }
 
@@ -988,29 +988,32 @@ footer h2{
                         }
 
 .socialmedia {
-    margin: 0.6rem;    
+    display: flex;
     flex-direction: row;
+    
+    margin: 0.6rem;    
     justify-content: flex-end;
     margin-bottom: 1.5625rem;
 }
 
     .socialmedia img {
+        margin: 0  1rem 0  1rem;
         width: 40px;
         height: 40px;
         transition: ease;
     }
 
-        .socialmedia:hover img[src="images/x.png"] {
+        .socials:hover img[src="images/x.png"] {
             content: url('images/x_blue.png');
             transform: scale(1.2);
         }
 
-        .socialmedia:hover img[src="images/ig.png"] {
+        .socials:hover img[src="images/ig.png"] {
             content: url('images/ig_blue.png');
             transform: scale(1.2);
         }
 
-        .socialmedia:hover img[src="images/facebook.png"] {
+        .socials:hover img[src="images/facebook.png"] {
             content: url('images/facebook_blue.png');
             transform: scale(1.2);
         }
@@ -1618,7 +1621,7 @@ section {
     right: 0;
     top: 0;
     bottom: 0;
-    background-color: rgba(35, 53, 129, 0.5);
+   
     background-image: url("models/cathedral.webp");
     background-size: contain;
     background-repeat: no-repeat;
@@ -2036,7 +2039,6 @@ p#final {
 
 .textbox a {
     color: #f2f4f3;
-    padding: 1.5625rem;
     
 }
 .textbox li {
@@ -2109,9 +2111,13 @@ p#final {
 .navigation-aid svg {
 	
 	padding-top: 1.5625rem;
- 
+    
 }
 /* style points  */
+
+.nav-point {
+    padding: 10%;
+}
 .nav-point:hover {
     fill: #223581;
 }
