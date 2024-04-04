@@ -1611,7 +1611,7 @@ section {
     right: 0;
     top: 0;
     bottom: 0;
-    background-color: rgba(35, 53, 129, 0.5);
+    /*background-color: rgba(35, 53, 129, 0.5); why is this here*/
     background-image: url("models/cathedral.webp");
     background-size: contain;
     background-repeat: no-repeat;
@@ -1723,14 +1723,14 @@ section {
 
 
 /* Options */
-
+/* augus css for tab boxes NEW!!!
 .container-menus {
     display: grid;
     gap: 1.5625rem;
     grid-template-rows: 200px 200px;
     padding: 1.5625rem;
     padding-bottom: 3.125rem;
-    row-gap: 10rem; /* adjust later to 1. */
+    row-gap: 10rem; /* adjust later to 1. 
     grid-template-areas:
     "options"
     "controls";
@@ -1768,8 +1768,11 @@ section {
         cursor: pointer;
     }
 
+    .options-container-box input[type="checkbox"] {
+        display: block;
+    }
 
-/* Collapsible Dropdown*/
+/* Collapsible Dropdown
 
 .collapsible-wrapper {
     border: none;
@@ -1823,7 +1826,7 @@ section {
     }
     
 
-/* Options and Key Controls */
+/* Options and Key Controls 
 
 .container-menus {
     display: grid;
@@ -1831,7 +1834,7 @@ section {
     grid-template-rows: 200px 200px;
     padding: 1.5625rem;
     padding-bottom: 3.125rem;
-    row-gap: 10rem; /* adjust later to 1. */
+    row-gap: 10rem; /* adjust later to 1. 
     grid-template-areas:
     "options"
     "controls";
@@ -1928,19 +1931,79 @@ section {
             background-color: #f9f9f9;
         }
 
+*/ 
+
+/* Birtes css for tab boxes OLD !!! */
+
+
+.container-menus {
+	display: grid;
+	grid-template-rows: 200px 200px;
+    padding: 1.5625rem;
+    row-gap: 10.5625rem; /* adjust later to 1. */
+    
+    
+	grid-template-areas:
+	"options"
+	"controls";
+}
+
+/* options menu and boxes */
+#options-row {
+    grid-area: options;
+    display: flex;
+    grid-template-columns: repeat(7, 1fr);
+    column-gap: 10px; 
+    flex-wrap: wrap;
+    border-radius: 8px;
+    
+}
+
+
+.options-container-box {
+   
+    gap: 1rem; 
+    background-color: #f9f9f9;
+    padding: 1.5625rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    margin-bottom: 10px; 
+    width: fit-content;
+    height: fit-content + 10%;
+    
+}
+
+.controls-container {
+	grid-area: controls;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+.options-container-box label {
+    padding-bottom: 1.5625rem;
+
+}
+ /* END OF THIS SECTION */
 
 
 
 
 
 
+/* for model container */
+.container1 {
+	display: grid;
+    /*grid-template-columns: auto-fit minmax(200px, 2fr), auto-fit minmax(130px, 1fr);*/
+    grid-template-columns: auto-fit 2fr auto-fit 1fr;
+	grid-template-rows: 31.25rem;
+    column-gap: 1.5625rem;
+    overflow-x: scroll; 
+    border: 1px dashed;
+    place-items: center; 
+}
 
 
 /*elements of the grid */
-.navigation-aid {
-	grid-column: 1;
-    grid-row: 2;
-}
 
 .model-box {
 	grid-row: 1;
@@ -1959,8 +2022,8 @@ section {
 	display: none;
 	border-radius: 8px;
 	background-color: #223581;
-	height: 95%;
-	width: 95%;
+	height: 31.25rem;
+	width: 20rem;
 	overflow-y: scroll;
 	overflow-x: hidden;
     transition: transform 0.3s ease;
@@ -1972,7 +2035,9 @@ section {
 .textbox p {
 	color: #f2f4f3;
     padding: 2%
-
+}
+p#final {
+    margin-bottom: 15%;
 }
 .textbox h4 {
 	color: #f2f4f3;
@@ -2002,7 +2067,7 @@ section {
 
   .forward, .back {
 	position: absolute;
-    top: 89%; 
+    top: 94%; 
     right: 10%;
     transform: translateY(-50%);
 	
@@ -2028,26 +2093,24 @@ left: 5%;
   }
 
   
-/* hide last few lines before scrolling, doesn't work lol */
-  .hidden-text {
-	color: blue !important;
-}
-
   
 
-/* navigation side line */
+/* navigation line */
 
-
+.navigation-aid {
+	
+    position: relative;
+   
+    padding-right: 30%;
+}
 
 .navigation-aid svg {
 	
 	padding-top: 1.5625rem;
-    padding-left: 2%;
-    padding-right: 2%;
+ 
 }
 /* style points  */
-.navigation-aid svg path:hover {
-   
+.nav-point:hover {
     fill: #223581;
 }
 

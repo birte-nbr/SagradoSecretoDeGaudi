@@ -147,6 +147,8 @@
                 <h4>Title</h4> 
                 <div class="options-container-box">
                     <label for="model-size" class="form-label gap-1">
+                        <input class="form-check-input" type="checkbox" id="auto-rotate" name="auto-rotate" value="on"
+                        checked onchange="setAutoRotateModel();">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
                             <path fill-rule="evenodd"
@@ -180,8 +182,10 @@
             <label for="tabannotations">Annotations</label>
             <div class="tab-content">
                 <h4>Title</h4> 
-                <div class="options-container-box">
+                <div class="options-container-box">                    
                     <label for="show-annotations" class="form-label">show annotations</label>
+                    <input type="checkbox" class="form-check-input" name="show-annotations" id="show-annotations"
+                            onchange="setShowAnnotations();" checked>
                 </div>
             </div>
         </div>
@@ -337,9 +341,7 @@
                         <p>
                             It is now known as Antoni Gaudí's place of rest, having been buried there upon his death in <b>1926</b>.
                         </p>
-                        <p>Read more about the Crypt <a href="blog.html#blog-selection-architecture">here</a>.</p> 
-                        <br>
-                        <br>
+                        <p id="final">Read more about the Crypt <a href="blog.html#blog-selection-architecture">here</a>.</p> 
                         <button class="close" id="1"><span class="cross">&#10006;</span></button>
                     </div>
                     <div class="textbox" id="textbox-2">
@@ -356,9 +358,7 @@
                         <p>When viewing the façade from left to right, you can observe the 4 bell towers dedicated to
                             <b>James the lesser, Bartholomew, Thomas, then Philip</b>.
                         </p>
-                        <p>Read more about the Passion façade <a href="blog.html#blog-selection-architecture">here</a>.</p> 
-                        <br>
-                        <br>
+                        <p id="final">Read more about the Passion façade <a href="blog.html#blog-selection-architecture">here</a>.</p> 
                         <button class="close" id="2"><span class="cross">&#10006;</span></button>
                     </div>
                     <div class="textbox" id="textbox-3">
@@ -378,9 +378,7 @@
                         <p>The 4 bell towers planned for this façade will represent the 4 remaining apostles: <b>Andrew,
                                 Peter, Paul, and James the Greater</b> (in order from left to right).
                         </p>
-                        <p>Read more about the Glory façade <a href="blog.html#blog-selection-architecture">here</a>.</p> 
-                        <br>
-                        <br>
+                        <p id="final">Read more about the Glory façade <a href="blog.html#blog-selection-architecture">here</a>.</p> 
                         <button class="close" id="3" onclick="closeTextBox()"><span
                                 class="cross">&#10006;</span></button>
                     </div>
@@ -394,9 +392,7 @@
                             identified by its magnificent morning star embellishment–one that can be seen shining
                             luminously at night.
                         </p>
-                        <p>Read more about the Virgin Mary tower <a href="blog.html#blog-selection-architecture">here</a>.</p> 
-                        <br>
-                        <br>
+                        <p id="final">Read more about the Virgin Mary tower <a href="blog.html#blog-selection-architecture">here</a>.</p>
                         <button class="close" id="4"><span class="cross">&#10006;</span></button>
                     </div>
                     <div class="textbox" id="textbox-5">
@@ -410,9 +406,7 @@
                             with a pinnacle of a “four-armed cross”, with added lights radiating in each of the cardinal
                             directions.
                         </p>
-                        <p>Read more about the Jesus Christ tower <a href="blog.html#blog-selection-architecture">here</a>.</p> 
-                        <br>
-                        <br>
+                        <p id="final">Read more about the Jesus Christ tower <a href="blog.html#blog-selection-architecture">here</a>.</p>
                         <button class="close" id="5"><span class="cross">&#10006;</span></button>
                     </div>
                     <div class="textbox" id="textbox-6">
@@ -428,9 +422,7 @@
                             <li>- John is represented by an eagle.</li>
                             <li>- Luke is represented by an ox.</li>
                         </ul>
-                        <p>Read more about the Evangelists towers <a href="blog.html#blog-selection-architecture">here</a>.</p> 
-                        <br>
-                        <br>
+                        <p id="final">Read more about the Evangelists towers <a href="blog.html#blog-selection-architecture">here</a>.</p> 
                         <button class="close" id="6"><span class="cross">&#10006;</span></button>
                     </div>
                     <div class="textbox" id="textbox-7">
@@ -452,45 +444,44 @@
                             Family, and contains 4 bell towers representing the apostles <b>Barnabas, Simon, Jude, and
                                 Matthias</b>
                             (when viewing them from left to right).</p>
-                        <p>It is the only façade whose construction began in Antoni Gaudí’s lifetime. Read more about
+                        <p id="final">It is the only façade whose construction began in Antoni Gaudí’s lifetime. Read more about
                             the
-                            Nativity façade <a href="blog.html#blog-selection-architecture">here</a>.</p> 
-                        <br>
-                        <br>
+                            Nativity façade <a href="blog.html#blog-selection-architecture">here</a>.</p>
                         <button class="close" id="7"><span class="cross">&#10006;</span></button>
                     </div>
                     <button class="back" id="last" onclick="skipBackward()"><span
                             class="arrow">&#129128;</span></button>
                 </div>
 
-                <!-- adding the navigation bar and dots here in this container -->
-                <div class="navigation-aid">
-                    <svg viewBox="0 0 1302 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 7H1302V11H0V7Z" fill="#D9D9D9" />
-                        <path class="nav-point" id="nav-1"
-                            d="M18 9C18 13.9706 13.9706 18 9 18C4.02944 18 0 13.9706 0 9C0 4.02944 4.02944 0 9 0C13.9706 0 18 4.02944 18 9Z"
-                            fill="#D9D9D9" />
-                        <path class="nav-point" id="nav-2"
-                            d="M232 9C232 13.9706 227.971 18 223 18C218.029 18 214 13.9706 214 9C214 4.02944 218.029 0 223 0C227.971 0 232 4.02944 232 9Z"
-                            fill="#D9D9D9" />
-                        <path class="nav-point" id="nav-3"
-                            d="M447 9C447 13.9706 442.971 18 438 18C433.029 18 429 13.9706 429 9C429 4.02944 433.029 0 438 0C442.971 0 447 4.02944 447 9Z"
-                            fill="#D9D9D9" />
-                        <path class="nav-point" id="nav-4"
-                            d="M660 9C660 13.9706 655.971 18 651 18C646.029 18 642 13.9706 642 9C642 4.02944 646.029 0 651 0C655.971 0 660 4.02944 660 9Z"
-                            fill="#D9D9D9" />
-                        <path class="nav-point" id="nav-5"
-                            d="M873 9C873 13.9706 868.971 18 864 18C859.029 18 855 13.9706 855 9C855 4.02944 859.029 0 864 0C868.971 0 873 4.02944 873 9Z"
-                            fill="#D9D9D9" />
-                        <path class="nav-point" id="nav-6"
-                            d="M1088 9C1088 13.9706 1083.97 18 1079 18C1074.03 18 1070 13.9706 1070 9C1070 4.02944 1074.03 0 1079 0C1083.97 0 1088 4.02944 1088 9Z"
-                            fill="#D9D9D9" />
-                        <path class="nav-point" id="nav-7"
-                            d="M1302 9C1302 13.9706 1297.97 18 1293 18C1288.03 18 1284 13.9706 1284 9C1284 4.02944 1288.03 0 1293 0C1297.97 0 1302 4.02944 1302 9Z"
-                            fill="#D9D9D9" />
-                    </svg>
+                
+            </div>
+            <!-- adding the navigation bar and dots here in this container -->
+            <div class="navigation-aid">
+                <svg viewBox="0 0 1302 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 7H1302V11H0V7Z" fill="#D9D9D9" />
+                    <path class="nav-point" id="nav-1"
+                        d="M18 9C18 13.9706 13.9706 18 9 18C4.02944 18 0 13.9706 0 9C0 4.02944 4.02944 0 9 0C13.9706 0 18 4.02944 18 9Z"
+                        fill="#D9D9D9" />
+                    <path class="nav-point" id="nav-2"
+                        d="M232 9C232 13.9706 227.971 18 223 18C218.029 18 214 13.9706 214 9C214 4.02944 218.029 0 223 0C227.971 0 232 4.02944 232 9Z"
+                        fill="#D9D9D9" />
+                    <path class="nav-point" id="nav-3"
+                        d="M447 9C447 13.9706 442.971 18 438 18C433.029 18 429 13.9706 429 9C429 4.02944 433.029 0 438 0C442.971 0 447 4.02944 447 9Z"
+                        fill="#D9D9D9" />
+                    <path class="nav-point" id="nav-4"
+                        d="M660 9C660 13.9706 655.971 18 651 18C646.029 18 642 13.9706 642 9C642 4.02944 646.029 0 651 0C655.971 0 660 4.02944 660 9Z"
+                        fill="#D9D9D9" />
+                    <path class="nav-point" id="nav-5"
+                        d="M873 9C873 13.9706 868.971 18 864 18C859.029 18 855 13.9706 855 9C855 4.02944 859.029 0 864 0C868.971 0 873 4.02944 873 9Z"
+                        fill="#D9D9D9" />
+                    <path class="nav-point" id="nav-6"
+                        d="M1088 9C1088 13.9706 1083.97 18 1079 18C1074.03 18 1070 13.9706 1070 9C1070 4.02944 1074.03 0 1079 0C1083.97 0 1088 4.02944 1088 9Z"
+                        fill="#D9D9D9" />
+                    <path class="nav-point" id="nav-7"
+                        d="M1302 9C1302 13.9706 1297.97 18 1293 18C1288.03 18 1284 13.9706 1284 9C1284 4.02944 1288.03 0 1293 0C1297.97 0 1302 4.02944 1302 9Z"
+                        fill="#D9D9D9" />
+                </svg>
 
-                </div>
             </div>
         </div>
     </section>
