@@ -1,4 +1,53 @@
 //Augus' part on overall website functionality
+
+//Architectural view: accessibility tabs
+document.addEventListener("DOMContentLoaded", function() {
+    const labels = document.querySelectorAll('.tabs label');
+    const tabContents = document.querySelectorAll('.tabs .tab-content');
+
+    labels.forEach(label => {
+        label.addEventListener('click', function() {
+            const tabContent = this.nextElementSibling;
+            const isVisible = tabContent.style.display === 'block';
+
+            // Reset all tab contents to be hidden and label backgrounds to original color
+            tabContents.forEach(content => {
+                content.style.display = 'none';
+            });
+
+            labels.forEach(lbl => {
+                lbl.style.background = '#223581';
+                this.style.color = '#fff'
+            });
+
+            // Toggle display of the clicked tab content and change label background
+            if (!isVisible) {
+                tabContent.style.display = 'block';
+                this.style.background = '#9ec5fe';
+                this.style.color = '#fff'
+            }
+        });
+    });
+
+    // Close tab if clicked outside of tabs area
+    document.body.addEventListener('click', function(event) {
+        const isInsideTabs = event.target.closest('.tabs');
+        if (!isInsideTabs) {
+            tabContents.forEach(content => {
+                content.style.display = 'none';
+            });
+            labels.forEach(label => {
+                label.style.background = '#223581';
+                this.style.color = '#fff'
+            });
+        }
+    });
+});
+
+
+
+
+
 //About us banner
 document.addEventListener('DOMContentLoaded', function() {
     const expandButtons = document.querySelectorAll('[expand-btn]');
