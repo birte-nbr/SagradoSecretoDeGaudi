@@ -1571,8 +1571,6 @@ section {
 
 
 
-
-
 /* Augus' css adjustments to 3D model*/
 
 .section2 #section-model {
@@ -1588,6 +1586,9 @@ section {
     height: 1rem;
     background-color: transparent;
     cursor: pointer;
+}
+.slider .form-range {
+    width: 100%;
 }
 
 .slider input[type="range"]::-webkit-slider-thumb {
@@ -1611,7 +1612,7 @@ section {
     right: 0;
     top: 0;
     bottom: 0;
-    /*background-color: rgba(35, 53, 129, 0.5); why is this here*/
+    background-color: rgba(35, 53, 129, 0.5);
     background-image: url("models/cathedral.webp");
     background-size: contain;
     background-repeat: no-repeat;
@@ -1653,7 +1654,7 @@ section {
 .header-sign {
     display: grid;
     grid-template-columns: max-content;
-    gap: 1.5625rem;
+    gap: 0.5rem;
     padding-bottom: 1.5625rem;
     padding-top: 1.5625rem;
 }
@@ -1666,6 +1667,41 @@ section {
     .header-sign svg{
         grid-row: 1;
         grid-column: 2;
+        align-self: center;
+}
+
+.sign-header {
+    display: grid;
+    grid-template-columns: max-content;
+    gap: 0.5rem;
+    padding-bottom: 1.5625rem;
+    padding-top: 1.5625rem;
+}
+
+    .sign-header h4{
+        grid-row: 1;
+        grid-column: 2;
+    }
+
+    .sign-header svg{
+        grid-row: 1;
+        grid-column: 1;
+        align-self: center;
+}
+
+.auto-rotation-controls {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+.auto-rotation-controls #auto-rotation-switch{
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.auto-rotation-controls #auto-rotation-speed{
+    grid-row: 1;
+    grid-column: 2;
 }
 
 
@@ -1674,38 +1710,47 @@ section {
     display: flex;
     flex-wrap: wrap;
     max-width: 100%;
-    margin: 50px auto;
     color: fff;
 }
 
+/* Hide checkboxes for tabs */
 .tabs input[type="checkbox"] {
     display: none;
+}
+
+/* Show checkboxes for tab content (rotation of/off and annotations) */
+.tab-content input[type="checkbox"] {
+    display: inline-block;
 }
 
 .tabs label {
     padding: 25px;
     background: #223581;
-    font-weight: bold;
     cursor: pointer;
     width: 20%;
     border: 1px solid #fff;
     border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0.9rem 1.875rem;
+    font-weight: bold;
 }
 
 .tabs label:hover {
-    background-color: #9ec5fe;
+    background-color: #007BFF;
 }
 
 .tabs .tab-content {
     width: 100%;
     padding: 20px;
-    background: #f9f9f9;
+    background: #E7E0DA;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     order: 1;
     display: none;
 }
 
-.tabs .tab-content h2 {
-    font-size: 3em;
+.tabs .tab-content h4 {
+    font-size: 1.5em;
 }
 
 .tabs input[type='checkbox']:checked + label + .tab-content {
@@ -1716,63 +1761,36 @@ section {
     background: #fff;
 }
 
-.tabs input[type='checkbox']:checked ~ .tab-content {
-    display: none;
-}
-
 
 
 /* Options */
-/* augus css for tab boxes NEW!!!
+
 .container-menus {
     display: grid;
     gap: 1.5625rem;
     grid-template-rows: 200px 200px;
     padding: 1.5625rem;
     padding-bottom: 3.125rem;
-    row-gap: 10rem; /* adjust later to 1. 
     grid-template-areas:
     "options"
     "controls";
 }
 
-    #options-row {
-        grid-area: options;
-        display: block;
-        column-gap: 10px; 
-        flex-wrap: wrap;
-        border-radius: 8px;
-        width: 100%;
-
-    }
-
 
     .options-container-box {
+        position: relative;
         background-color: #f9f9f9;
-        padding: 1.5625rem;
+        padding: 0 1.5625rem 1.5625rem 1.5625rem;
         border-radius: 8px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
         margin-bottom: 10px; 
         width: 100%;
-        height: fit-content;
         color: #fff;
-        
     }
+ 
 
 
-    .options-container-box label {
-        padding-bottom: 1.5625rem;
-        width: 100%;
-        height: fit-content;
-        cursor: pointer;
-    }
-
-    .options-container-box input[type="checkbox"] {
-        display: block;
-    }
-
-/* Collapsible Dropdown
+/* Collapsible Dropdown*/
 
 .collapsible-wrapper {
     border: none;
@@ -1785,7 +1803,7 @@ section {
   }
   
   .collapsible-label {
-    background-color: #000;
+    background-color: #223581;
     display: block;
     color: white;
     cursor: pointer;
@@ -1796,6 +1814,7 @@ section {
     padding: 0.9rem 1.875rem;
     cursor: pointer;
     font-size: 1rem;
+    font-weight: bold;
   }
 
     .collapsible label::after {
@@ -1826,7 +1845,7 @@ section {
     }
     
 
-/* Options and Key Controls 
+/* Options and Key Controls */
 
 .container-menus {
     display: grid;
@@ -1834,7 +1853,7 @@ section {
     grid-template-rows: 200px 200px;
     padding: 1.5625rem;
     padding-bottom: 3.125rem;
-    row-gap: 10rem; /* adjust later to 1. 
+    row-gap: 10rem; /* adjust later to 1. */
     grid-template-areas:
     "options"
     "controls";
@@ -1923,7 +1942,7 @@ section {
         }
 
         th {
-            background-color: #007bff;
+            background-color: #223581;
             color: #fff;
         }
 
@@ -1931,62 +1950,15 @@ section {
             background-color: #f9f9f9;
         }
 
-*/ 
-
-/* Birtes css for tab boxes OLD !!! */
-
-
-.container-menus {
-	display: grid;
-	grid-template-rows: 200px 200px;
-    padding: 1.5625rem;
-    row-gap: 10.5625rem; /* adjust later to 1. */
-    
-    
-	grid-template-areas:
-	"options"
-	"controls";
-}
-
-/* options menu and boxes */
-#options-row {
-    grid-area: options;
-    display: flex;
-    grid-template-columns: repeat(7, 1fr);
-    column-gap: 10px; 
-    flex-wrap: wrap;
-    border-radius: 8px;
-    
-}
-
-
-.options-container-box {
-   
-    gap: 1rem; 
-    background-color: #f9f9f9;
-    padding: 1.5625rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    margin-bottom: 10px; 
-    width: fit-content;
-    height: fit-content + 10%;
-    
-}
-
-.controls-container {
-	grid-area: controls;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-}
-.options-container-box label {
-    padding-bottom: 1.5625rem;
-
-}
- /* END OF THIS SECTION */
 
 
 
+
+
+
+
+
+/* Birtes css  */
 
 
 
@@ -1998,7 +1970,6 @@ section {
 	grid-template-rows: 31.25rem;
     column-gap: 1.5625rem;
     overflow-x: scroll; 
-    border: 1px dashed;
     place-items: center; 
 }
 

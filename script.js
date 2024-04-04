@@ -5,31 +5,57 @@ document.addEventListener("DOMContentLoaded", function() {
     const labels = document.querySelectorAll('.tabs label');
     const tabContents = document.querySelectorAll('.tabs .tab-content');
 
-    labels.forEach(label => {
-        label.addEventListener('click', function() {
-            const tabContent = this.nextElementSibling;
-            const isVisible = tabContent.style.display === 'block';
-
-            // Reset all tab contents to be hidden and label backgrounds to original color
-            tabContents.forEach(content => {
-                content.style.display = 'none';
-            });
-
-            labels.forEach(lbl => {
-                lbl.style.background = '#223581';
-                this.style.color = '#fff'
-            });
-
-            // Toggle display of the clicked tab content and change label background
-            if (!isVisible) {
-                tabContent.style.display = 'block';
-                this.style.background = '#9ec5fe';
-                this.style.color = '#fff'
-            }
-        });
+    // Set initial text color for all labels
+    labels.forEach(lbl => {
+        lbl.style.color = '#fff';
     });
 
-    // Close tab if clicked outside of tabs area
+    // Function to handle tab click
+    function handleTabClick(label) {
+        const tabContent = label.nextElementSibling;
+        const isVisible = tabContent.style.display === 'block';
+
+        // Reset all tab contents to be hidden and label backgrounds to original color
+        tabContents.forEach(content => {
+            content.style.display = 'none';
+        });
+
+        labels.forEach(lbl => {
+            lbl.style.background = '#223581';
+            lbl.style.color = '#fff';
+        });
+
+        // Toggle display of the clicked tab content and change label background
+        if (!isVisible) {
+            tabContent.style.display = 'block';
+            label.style.background = '#E7E0DA';
+            label.style.color = '#000'; // Change text color to white for the clicked label
+        }
+    }
+
+    //event listeners for click and hover colors
+    labels.forEach(label => {
+        // Only apply hover effect to labels with ID starting with "tabs"
+        if (label.getAttribute('for').startsWith('tab')) {
+            label.addEventListener('click', function() {
+                handleTabClick(this);
+            });
+
+            label.addEventListener('mouseover', function() {
+                if (this.nextElementSibling.style.display !== 'block') {
+                    this.style.background = '#007BFF';
+                }
+            });
+
+            label.addEventListener('mouseout', function() {
+                if (this.nextElementSibling.style.display !== 'block') {
+                    this.style.background = '#223581';
+                }
+            });
+        }
+    });
+
+    // Closing tabs if clicked outside of tabs area
     document.body.addEventListener('click', function(event) {
         const isInsideTabs = event.target.closest('.tabs');
         if (!isInsideTabs) {
@@ -38,11 +64,12 @@ document.addEventListener("DOMContentLoaded", function() {
             });
             labels.forEach(label => {
                 label.style.background = '#223581';
-                this.style.color = '#fff'
+                label.style.color = '#fff';
             });
         }
     });
 });
+
 
 
 
