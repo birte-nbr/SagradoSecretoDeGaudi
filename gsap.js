@@ -1,13 +1,13 @@
  //Scroller
  const container = document.querySelector('.timeline_project');
- const selections = gsap.utils.toArray('.timeline_project section');
+ const selections = gsap.utils.toArray('.timeline_project section1');
  const etxts = gsap.utils.toArray('.anim');
  const mask = document.querySelector('.mask');
  
  // Calculate the total width of all text sections
  let totalWidth = 0;
- selections.forEach(section => {
-     totalWidth += section.offsetWidth;
+ selections.forEach(section1 => {
+     totalWidth += section1.offsetWidth;
  });
  
  //scroll trigger (scrolling = moving right on timeline)
