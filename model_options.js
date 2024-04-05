@@ -270,22 +270,26 @@ document.querySelectorAll('.close').forEach((button) => {
 
 document.querySelectorAll('.Hotspot').forEach((hotspot) => {
 	hotspot.addEventListener('click', () => handleAnnotationClick(hotspot));
+	
 
 	hotspot.addEventListener('click', (event) => {
 		const colorString = event.target.dataset.color;
 		const modelViewer = document.querySelector("model-viewer");
 		
 		
-		//console.log(modelViewer.model.materials[0].pbrMetallicRoughness);
+		// console.log(modelViewer.model.materials[0].pbrMetallicRoughness);
 		 
-		for (let x = 0; x < 7; x++){
+		for (let x = 0; x < 9; x++){
 			if (x === parseInt(event.target.dataset.material)) {
 				//Update the color
 				const material = modelViewer.model.materials[event.target.dataset.material];
+				console.log(modelViewer.model.materials[event.target.dataset.material]);
 		
 				material.pbrMetallicRoughness.setBaseColorFactor("#70CBFF");
 			} else {
 				modelViewer.model.materials[x].pbrMetallicRoughness.setBaseColorFactor("#947c5f");
+			  
+			  
 				//console.log(x);
 			}
 		};
