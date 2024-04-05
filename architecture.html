@@ -20,23 +20,23 @@
 
 <body>
     <header>
+        <a href="#main" class="skip">Skip to main content</a>
+        <script src="https://cdn.userway.org/widget.js" data-account="nY3cImFAaN"></script>
         <nav class="navbar">
-            <div class="logo"><a href="homepage.html"><img src="images/ESSDG_Logo.png" alt="Logo" class="logo-img"></a>
+            <div class="logo"><a href="homepage.html" aria-label="Return to Homepage" ><img src="images/ESSDG_Logo.png" alt="Logo" class="logo-img"></a></div>       
+            <button class="menu-toggle" onclick="toggleMenu()" aria-controls="menuContent" aria-expanded="false" aria-label="Toggle menu"></button>
+            <!-- <label for="toggle"></label> -->
+            <div class="menu" id="menuContent">
+                <ul>
+                    <li><a href="homepage.html" aria-label="Link to Homepage" >Home</a></li>
+                    <li><a href="architecture.html" aria-label="Link to Architecture page">Architecture</a></li>
+                    <li><a href="timeline.html" aria-label="Link to Timeline page">Timeline</a></li>
+                    <li><a href="blog.html" aria-label="Link to Blog page">Blog</a></li>
+                    <li><a href="about.html" aria-label="Link to About us page">About Us</a></li>
+                    <li><a href="contact.html" aria-label="Link to Contact page">Contact</a></li>
+                    <li><a href="terms.html" aria-label="Link to Terms and Conditions page">Terms and Conditions</a></li>
+                </ul>
             </div>
-            <button class="menu-toggle" onclick="toggleMenu()">
-                <label for="toggle"></label>
-                <div class="menu">
-                    <ul>
-                        <li><a href="homepage.html">Home</a></li>
-                        <li><a href="architecture.html">Architecture</a></li>
-                        <li><a href="timeline.html">Timeline</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="terms.html">Terms and Conditions</a></li>
-                    </ul>
-                </div>
-            </button>
         </nav>
     </header>
 
@@ -52,7 +52,7 @@
     
 
     
-
+    <main id="main"> 
     <!-- Section content -->
     <section class="section1">
         
@@ -69,7 +69,7 @@
     
 
                      
-        <div class="tabs">
+        <div class="tabs" >
 
             <!--model size-->
 
@@ -204,7 +204,7 @@
                         onchange="setShowAnnotations();" checked>
                 </div>
             </div>
-        </div>
+
         </div>
 
         <!--Collapser-->
@@ -264,7 +264,6 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
             </div>
             </div>
         </div>
@@ -366,7 +365,7 @@
                         <p>
                             It is now known as Antoni Gaudí's place of rest, having been buried there upon his death in <b>1926</b>.
                         </p>
-                        <p id="final">Read more about the Crypt <a href="blog.html#blog-selection-architecture">here</a>.</p> 
+                        <p class="final">Read more about the Crypt <a href="blog.html#blog-selection-architecture">here</a>.</p> 
                         <button class="close" id="1"><span class="cross">&#10006;</span></button>
                     </div>
                     <div class="textbox" id="textbox-2">
@@ -383,7 +382,7 @@
                         <p>When viewing the façade from left to right, you can observe the 4 bell towers dedicated to
                             <b>James the lesser, Bartholomew, Thomas, then Philip</b>.
                         </p>
-                        <p id="final">Read more about the Passion façade <a href="blog.html#blog-selection-architecture">here</a>.</p> 
+                        <p class="final">Read more about the Passion façade <a href="blog.html#blog-selection-architecture">here</a>.</p> 
                         <button class="close" id="2"><span class="cross">&#10006;</span></button>
                     </div>
                     <div class="textbox" id="textbox-3">
@@ -403,7 +402,7 @@
                         <p>The 4 bell towers planned for this façade will represent the 4 remaining apostles: <b>Andrew,
                                 Peter, Paul, and James the Greater</b> (in order from left to right).
                         </p>
-                        <p id="final">Read more about the Glory façade <a href="blog.html#blog-selection-architecture">here</a>.</p> 
+                        <p class="final">Read more about the Glory façade <a href="blog.html#blog-selection-architecture">here</a>.</p> 
                         <button class="close" id="3" onclick="closeTextBox()"><span
                                 class="cross">&#10006;</span></button>
                     </div>
@@ -417,7 +416,7 @@
                             identified by its magnificent morning star embellishment–one that can be seen shining
                             luminously at night.
                         </p>
-                        <p id="final">Read more about the Virgin Mary tower <a href="blog.html#blog-selection-architecture">here</a>.</p>
+                        <p class="final">Read more about the Virgin Mary tower <a href="blog.html#blog-selection-architecture">here</a>.</p>
                         <button class="close" id="4"><span class="cross">&#10006;</span></button>
                     </div>
                     <div class="textbox" id="textbox-5">
@@ -431,7 +430,7 @@
                             with a pinnacle of a “four-armed cross”, with added lights radiating in each of the cardinal
                             directions.
                         </p>
-                        <p id="final">Read more about the Jesus Christ tower <a href="blog.html#blog-selection-architecture">here</a>.</p>
+                        <p class="final">Read more about the Jesus Christ tower <a href="blog.html#blog-selection-architecture">here</a>.</p>
                         <button class="close" id="5"><span class="cross">&#10006;</span></button>
                     </div>
                     <div class="textbox" id="textbox-6">
@@ -447,7 +446,7 @@
                             <li>- John is represented by an eagle.</li>
                             <li>- Luke is represented by an ox.</li>
                         </ul>
-                        <p id="final">Read more about the Evangelists towers <a href="blog.html#blog-selection-architecture">here</a>.</p> 
+                        <p class="final">Read more about the Evangelists towers <a href="blog.html#blog-selection-architecture">here</a>.</p> 
                         <button class="close" id="6"><span class="cross">&#10006;</span></button>
                     </div>
                     <div class="textbox" id="textbox-7">
@@ -469,7 +468,7 @@
                             Family, and contains 4 bell towers representing the apostles <b>Barnabas, Simon, Jude, and
                                 Matthias</b>
                             (when viewing them from left to right).</p>
-                        <p id="final">It is the only façade whose construction began in Antoni Gaudí’s lifetime. Read more about
+                        <p class="final">It is the only façade whose construction began in Antoni Gaudí’s lifetime. Read more about
                             the
                             Nativity façade <a href="blog.html#blog-selection-architecture">here</a>.</p>
                         
@@ -511,46 +510,45 @@
             </div>
         </div>
     </section>
-
+    </main>
     <!-- Footer -->
     <footer>
-        <h2>Footer</h2>
         <div class="footer-grid">
             <div class="text-block-footer" id="block1">
-                <h3>Disclaimer</h3>
-                <p>&copy; 2024 El Sagrado Secreto de Gaudí. This website was made with love and passion.</p>
+                <h3>Copyright</h3>
+                <p>&copy; 2024 El Sagrado Secreto de Gaudí. The current year defines the nativity of our website, one designed and developed by us with passion, and fully presented to you, our users, in all of its online glory.</p>
             </div>
             <div class="text-block-footer" id="block2">
-                <h3>Our pages</h3>
+                <h3>Content</h3>
                 <ul>
-                    <li><a href="homepage.html">Home<span></span></a></li>
-                    <li><a href="architecture.html">Architecture<span></span></a></li>
-                    <li><a href="timeline.html">Timeline<span></span></a></li>
-                    <li><a href="about.html">About Us<span></span></a></li>
-                    <li><a href="contact.html">Contact<span></span></a></li>
-                    <li><a href="terms.html">Terms and Conditions<span></span></a></li>
+                    <li><a href="homepage.html" aria-label="Link to Homepage">Home<span></span></a></li>
+                    <li><a href="architecture.html" aria-label="Link to Architecture page">Architecture<span></span></a></li>
+                    <li><a href="timeline.html" aria-label="Link to Timeline page">Timeline<span></span></a></li>
+                    <li><a href="blog.html" aria-label="Link to Blog page">Blog<span></span></a></li>
+                    <li><a href="about.html" aria-label="Link to About us page">About Us<span></span></a></li>
+                    <li><a href="contact.html" aria-label="Link to Contact page">Contact<span></span></a></li>
+                    <li><a href="terms.html" aria-label="Link to Terms and Conditions page">Terms and Conditions<span></span></a></li>
                 </ul>
             </div>
             <div class="text-block-footer" id="block3">
                 <h3>Social media</h3>
                 <div class="socialmedia">
-                <a class="socials" href="https://twitter.com/sagradafamilia/status/1185124497470439426"
-                    target="_blank">
-                    <img src="images/x.png" alt="X Logo with Link to x"></a>
-                <a class="socials" href="https://www.instagram.com/basilicasagradafamilia/" target="_blank">
-                    <img src="images/ig.png" alt="Instagram Logo with Link to Instagram"></a>
-                <a class="socials" href="https://www.facebook.com/BasilicadelaSagradaFamilia/" target="_blank">
-                    <img src="images/facebook.png" alt="facebook Logo with Link to facebook"></a>
-                </div>
+                    <a class="socials" href="https://twitter.com/sagradafamilia/status/1185124497470439426"
+                        target="_blank">
+                        <img src="images/x.png" alt="X Logo with Link to x"></a>
+                    <a class="socials" href="https://www.instagram.com/basilicasagradafamilia/" target="_blank">
+                        <img src="images/ig.png" alt="Instagram Logo with Link to Instagram"></a>
+                    <a class="socials" href="https://www.facebook.com/BasilicadelaSagradaFamilia/" target="_blank">
+                        <img src="images/facebook.png" alt="facebook Logo with Link to facebook"></a>
+                    </div>
                 <div class="button-container">
-                    <button class="button-dark"
-                        onclick="redirectToPage('https://giving.sagradafamilia.org/puntual?lang=en')">Donate</button>
-                    <button class="button-dark"
-                        onclick="redirectToPage('https://giving.sagradafamilia.org/puntual?lang=en')">Tickets</button>
+                    <button class="button-dark" onclick="redirectToPage('https://giving.sagradafamilia.org/puntual?lang=en')">Donate</button>
+                    <button class="button-dark" onclick="redirectToPage('https://giving.sagradafamilia.org/puntual?lang=en')">Tickets</button>
                 </div>
             </div>
         </div>
     </footer>
+    
     <script src="model_options.js" async defer></script>
 </body>
 
