@@ -573,7 +573,7 @@ span {
 
 .filler2 {
     padding: 1.5625rem;
-    background-color: #f9f9f9;
+    background-color: #f2f4f3;
 }
 
 .line-divider {
@@ -594,7 +594,7 @@ span {
 
 .section2 {
     height: auto; 
-    background: #f9f9f9;
+    background: #f2f4f3;
     color: #000;
     padding: 6.25rem;
 }
@@ -701,7 +701,7 @@ span {
     padding-top: 3.125rem;
 }
     .three-blocks-text-block-gray{
-        background-color: #f9f9f9;
+        background-color: #f2f4f3;
         padding:1.5625rem;
         border-radius: 8px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -808,7 +808,7 @@ span {
     .reviewer-photo {
         width: 150px;
         height: 150px;
-        background-color: #f9f9f9; /* Example background color for photo */
+        background-color: #f2f4f3; /* Example background color for photo */
         border-radius: 50%;
         overflow: hidden; /* Ensure the image stays within the container */
         grid-column: 2;
@@ -1554,7 +1554,7 @@ section {
             }
 
             .text-box-timeline {
-                background-color: #f9f9f9;
+                background-color: #f2f4f3;
                 padding: 0.625rem;
                 height: 10rem;
                 border-end-end-radius: 8px;
@@ -1866,7 +1866,7 @@ section {
 
     .options-container-box {
         position: relative;
-        background-color: #f9f9f9;
+        background-color: #f2f4f3;
         padding: 0 1.5625rem 1.5625rem 1.5625rem;
         border-radius: 8px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
