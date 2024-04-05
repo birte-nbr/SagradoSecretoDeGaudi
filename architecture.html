@@ -20,23 +20,23 @@
 
 <body>
     <header>
-        <a href="#main" class="skip">Skip to main content</a>
-        <script src="https://cdn.userway.org/widget.js" data-account="nY3cImFAaN"></script>
         <nav class="navbar">
-            <div class="logo"><a href="homepage.html" aria-label="Return to Homepage" ><img src="images/ESSDG_Logo.png" alt="Logo" class="logo-img"></a></div>       
-            <button class="menu-toggle" onclick="toggleMenu()" aria-controls="menuContent" aria-expanded="false" aria-label="Toggle menu"></button>
-            <!-- <label for="toggle"></label> -->
-            <div class="menu" id="menuContent">
-                <ul>
-                    <li><a href="homepage.html" aria-label="Link to Homepage" >Home</a></li>
-                    <li><a href="architecture.html" aria-label="Link to Architecture page">Architecture</a></li>
-                    <li><a href="timeline.html" aria-label="Link to Timeline page">Timeline</a></li>
-                    <li><a href="blog.html" aria-label="Link to Blog page">Blog</a></li>
-                    <li><a href="about.html" aria-label="Link to About us page">About Us</a></li>
-                    <li><a href="contact.html" aria-label="Link to Contact page">Contact</a></li>
-                    <li><a href="terms.html" aria-label="Link to Terms and Conditions page">Terms and Conditions</a></li>
-                </ul>
+            <div class="logo"><a href="homepage.html"><img src="images/ESSDG_Logo.png" alt="Logo" class="logo-img"></a>
             </div>
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <label for="toggle"></label>
+                <div class="menu">
+                    <ul>
+                        <li><a href="homepage.html">Home</a></li>
+                        <li><a href="architecture.html">Architecture</a></li>
+                        <li><a href="timeline.html">Timeline</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="terms.html">Terms and Conditions</a></li>
+                    </ul>
+                </div>
+            </button>
         </nav>
     </header>
 
@@ -52,7 +52,7 @@
     
 
     
-    <main id="main"> 
+
     <!-- Section content -->
     <section class="section1">
         
@@ -69,7 +69,7 @@
     
 
                      
-        <div class="tabs" >
+        <div class="tabs">
 
             <!--model size-->
 
@@ -204,7 +204,7 @@
                         onchange="setShowAnnotations();" checked>
                 </div>
             </div>
-
+        </div>
         </div>
 
         <!--Collapser-->
@@ -266,6 +266,7 @@
                 </div>
             </div>
             </div>
+            </div>
         </div>
 
 
@@ -280,7 +281,7 @@
                 ar-modes="webxr scene-viewer quick-look" src="models/sagrada-familia.glb" poster="models/cathedral.webp"
                 reveal="manual" shadow-intensity="1" camera-controls auto-rotate-delay="0"
                 interaction-prompt-style="basic" alt="A 3D model of the Basílica de la Sagrada Familía.">-->
-                <model-viewer id="Basílica-de-la-Sagrada-Familía" class="model-box" camera-orbit="180deg 0 60%"
+                <model-viewer id="Basílica-de-la-Sagrada-Familía" class="model-box" camera-orbit="0deg 0 60%"
                     min-camera-orbit="-Inf Inf auto" max-camera-orbit="-Inf Inf auto" camera-target="0 0 0"
                     src="models/sagrada-final.glb" camera-controls
                     tone-mapping="commerce" poster="models/cathedral.webp" shadow-intensity="1.27"
@@ -288,54 +289,27 @@
                     auto-rotate-delay="0" alt="A 3D model of the Basílica de la Sagrada Familía.">
                     <div id="lazy-load-poster" slot="poster"></div>
                     <button id="button-load" slot="poster" type="button" class="button-dark">Load 3D model</button>
-                    <button class="Hotspot" slot="hotspot-1"
-                        data-position="-2.384867731750965m -0.3311009164701808m -1.853318706883946m"
-                        data-normal="-1.5099578831723023e-7m 0m 0.9999999999999888m"
-                        data-target="2.384867731750965m -0.3311009164701808m -10.853318706883946m"
-                        data-orbit="-45deg 90deg 1m" data-zoom="90deg" data-visibility-attribute="visible">
-                        <div class="HotspotAnnotation" data-material="2">Crypt</div>
-                    </button>
-                    <button class="Hotspot" slot="hotspot-2"
-                        data-position="-0.8902047013536926m 3.4609200073268465m -0.5408927057880986m"
-                        data-normal="-0.1215467878446682m 0.6317977777928494m 0.7655442157972723m"
-                        data-target="-0.8902047013536926m 3.4609200073268465m -0.5408927057880986m"
-                        data-orbit="20deg 70deg 2m" data-zoom="20deg" data-visibility-attribute="visible">
-                        <div class="HotspotAnnotation" data-material="1">Passion Façade</div>
-                    </button>
-                    <button class="Hotspot" slot="hotspot-3"
-                        data-position="3.6664163968952845m 3.3558024338023027m -2.5915328804397877m"
-                        data-normal="0.9999347956709038m 0.007822071199221929m -0.008319832254458506m"
-                        data-target="3.6664163968952845m 3.3558024338023027m -2.5915328804397877m"
-                        data-orbit="110deg 60deg 2m" data-zoom="20deg" data-visibility-attribute="visible">
-                        <div class="HotspotAnnotation" data-material="3">Glory Façade</div>
-                    </button>
-                    <button class="Hotspot" slot="hotspot-4"
-                        data-position="-2.6130948838359354m 5.702583848720181m -2.4778849420459537m"
-                        data-normal="-0.9915567554639021m 0.10948205097579104m 0.06949015187804504m"
-                        data-target="-2.6130948838359354m 3.702583848720181m -2.4778849420459537m"
-                        data-orbit="-60deg 60deg 2m" data-zoom="20deg" data-visibility-attribute="visible">
-                        <div class="HotspotAnnotation">Virgin Mary Tower</div>
-                    </button>
-                    <button class="Hotspot" slot="hotspot-5"
-                        data-position="-0.6594702543741023m 7.827801004307712m -2.9102191368961448m"
-                        data-normal="0.7022981871164721m 0.11587874995581326m -0.7023883339589254m"
-                        data-target="-0.6594702543741023m 4.827801004307712m -2.9102191368961448m"
-                        data-orbit="160deg 60deg 2m" data-zoom="25deg" data-visibility-attribute="visible">
-                        <div class="HotspotAnnotation">Jesus Christ Tower</div>
-                    </button>
-                    <button class="Hotspot" slot="hotspot-6"
-                        data-position="0.056400134622043074m 5.82713977749515m -3.3162381191434234m"
-                        data-normal="0.3458723032782576m 0.062116169965127394m -0.9362232272561158m"
-                        data-target="0.056400134622043074m 5.82713977749515m -3.3162381191434234m"
-                        data-orbit="130deg 60deg 2m" data-zoom="15deg" data-visibility-attribute="visible">
-                        <div class="HotspotAnnotation">Evangelists Towers</div>
-                    </button>
-                    <button class="Hotspot" slot="hotspot-7"
-                        data-position="-0.9527346135346242m 3.315402459313587m -4.865697564097661m"
-                        data-normal="-0.25514525209019645m 0.17545012030005003m -0.9508512794451761m"
-                        data-target="-0.9527346135346242m 3.315402459313587m -4.865697564097661m"
-                        data-orbit="-150deg 60deg 2m" data-zoom="20deg" data-visibility-attribute="visible">
-                        <div class="HotspotAnnotation">Nativity Façade</div>
+
+                    <button class="Hotspot" slot="hotspot-1" data-position="-2.6019222978963024m -0.3706023531638649m 0.7337541096154104m" data-normal="-1.509957883172319e-7m 0m 0.9999999999999887m" data-target="2.384867731750965m -0.2011009164701808m -2.853318706883946m" data-orbit="-45deg 90deg 1m" data-zoom="90deg" data-visibility-attribute="visible">
+                        <div class="HotspotAnnotation" data-material="8">The Crypt</div>
+              
+                    </button><button class="Hotspot" slot="hotspot-2" data-position="-0.9107936509236558m 3.4637691211618873m 2.0405598482940106m" data-normal="-0.12154678784466805m 0.6317977777928496m 0.765544215797272m" data-target="-0.8902047013536926m 3.4609200073268465m -0.5408927057880986m" data-orbit="20deg 70deg 4m" data-zoom="30deg" data-visibility-attribute="visible">
+                        <div class="HotspotAnnotation" data-material="3">The Passion Façade</div>
+              
+                    </button><button class="Hotspot" slot="hotspot-3" data-position="3.671971345572472m 3.5476125156929657m 0.029941083714988714m" data-normal="0.9658498661158684m -0.012304191068932071m 0.2588100519804022m" data-target="3.6664163968952845m 3.3558024338023027m 0.0015328804397877m" data-orbit="110deg 60deg 2m" data-zoom="20deg" data-visibility-attribute="visible">
+                        <div class="HotspotAnnotation" data-material="1">The Glory Façade</div>
+              
+                    </button><button class="Hotspot" slot="hotspot-4" data-position="0.05182928788929475m 6.583623015142566m -0.5938796869889325m" data-normal="0.873640369098481m -0.00038506740280200183m -0.48657204729059933m" data-target="0.056400134622043074m 6.82713977749515m -0.3162381191434234m" data-orbit="130deg 60deg 2m" data-zoom="25deg" data-visibility-attribute="visible">
+                        <div class="HotspotAnnotation" data-material="7">Evangelists Towers</div>
+              
+                    </button><button class="Hotspot" slot="hotspot-5" data-position="-0.7443072702736862m 8.95352905157644m -0.19270456701195454m" data-normal="0.6919798156890105m 0.18273361062122154m -0.6984070175967125m" data-target="-0.6594702543741023m 6.827801004307712m -0.9102191368961448m" data-orbit="160deg 60deg 2m" data-zoom="20deg" data-visibility-attribute="visible">
+                        <div class="HotspotAnnotation" data-material="5">Tower of Jesus Christ</div>
+              
+                    </button><button class="Hotspot" slot="hotspot-7" data-position="-0.8959972090174194m 2.8508754453826306m -2.2752973659786m" data-normal="-0.18224042944179616m 0.14456312769525517m -0.9725687266141325m" data-target="-0.9527346135346242m 4.315402459313587m -3.865697564097661m" data-orbit="-150deg 60deg 2m" data-zoom="20deg" data-visibility-attribute="visible">
+                        <div class="HotspotAnnotation" data-material="2">Nativity Façade</div>
+              
+                    </button><button class="Hotspot" slot="hotspot-8" data-position="-2.466814295732697m 6.437277245759178m 0.01624570490471422m" data-normal="-0.9999999999999944m -7.549786814166157e-8m -7.543801927578643e-8m" data-target="-2.6130948838359354m 4.702583848720181m -0.0778849420459537m" data-orbit="-60deg 60deg 2m" data-zoom="20deg" data-visibility-attribute="visible">
+                        <div class="HotspotAnnotation" data-material="6">Virgin Mary Tower</div>
                     </button>
 
                 </model-viewer>
@@ -365,7 +339,7 @@
                         <p>
                             It is now known as Antoni Gaudí's place of rest, having been buried there upon his death in <b>1926</b>.
                         </p>
-                        <p class="final">Read more about the Crypt <a href="blog.html#blog-selection-architecture">here</a>.</p> 
+                        <p id="final">Read more about the Crypt <a href="blog.html#blog-selection-architecture">here</a>.</p> 
                         <button class="close" id="1"><span class="cross">&#10006;</span></button>
                     </div>
                     <div class="textbox" id="textbox-2">
@@ -382,7 +356,7 @@
                         <p>When viewing the façade from left to right, you can observe the 4 bell towers dedicated to
                             <b>James the lesser, Bartholomew, Thomas, then Philip</b>.
                         </p>
-                        <p class="final">Read more about the Passion façade <a href="blog.html#blog-selection-architecture">here</a>.</p> 
+                        <p id="final">Read more about the Passion façade <a href="blog.html#blog-selection-architecture">here</a>.</p> 
                         <button class="close" id="2"><span class="cross">&#10006;</span></button>
                     </div>
                     <div class="textbox" id="textbox-3">
@@ -402,7 +376,7 @@
                         <p>The 4 bell towers planned for this façade will represent the 4 remaining apostles: <b>Andrew,
                                 Peter, Paul, and James the Greater</b> (in order from left to right).
                         </p>
-                        <p class="final">Read more about the Glory façade <a href="blog.html#blog-selection-architecture">here</a>.</p> 
+                        <p id="final">Read more about the Glory façade <a href="blog.html#blog-selection-architecture">here</a>.</p> 
                         <button class="close" id="3" onclick="closeTextBox()"><span
                                 class="cross">&#10006;</span></button>
                     </div>
@@ -416,7 +390,7 @@
                             identified by its magnificent morning star embellishment–one that can be seen shining
                             luminously at night.
                         </p>
-                        <p class="final">Read more about the Virgin Mary tower <a href="blog.html#blog-selection-architecture">here</a>.</p>
+                        <p id="final">Read more about the Virgin Mary tower <a href="blog.html#blog-selection-architecture">here</a>.</p>
                         <button class="close" id="4"><span class="cross">&#10006;</span></button>
                     </div>
                     <div class="textbox" id="textbox-5">
@@ -430,7 +404,7 @@
                             with a pinnacle of a “four-armed cross”, with added lights radiating in each of the cardinal
                             directions.
                         </p>
-                        <p class="final">Read more about the Jesus Christ tower <a href="blog.html#blog-selection-architecture">here</a>.</p>
+                        <p id="final">Read more about the Jesus Christ tower <a href="blog.html#blog-selection-architecture">here</a>.</p>
                         <button class="close" id="5"><span class="cross">&#10006;</span></button>
                     </div>
                     <div class="textbox" id="textbox-6">
@@ -446,7 +420,7 @@
                             <li>- John is represented by an eagle.</li>
                             <li>- Luke is represented by an ox.</li>
                         </ul>
-                        <p class="final">Read more about the Evangelists towers <a href="blog.html#blog-selection-architecture">here</a>.</p> 
+                        <p id="final">Read more about the Evangelists towers <a href="blog.html#blog-selection-architecture">here</a>.</p> 
                         <button class="close" id="6"><span class="cross">&#10006;</span></button>
                     </div>
                     <div class="textbox" id="textbox-7">
@@ -468,7 +442,7 @@
                             Family, and contains 4 bell towers representing the apostles <b>Barnabas, Simon, Jude, and
                                 Matthias</b>
                             (when viewing them from left to right).</p>
-                        <p class="final">It is the only façade whose construction began in Antoni Gaudí’s lifetime. Read more about
+                        <p id="final">It is the only façade whose construction began in Antoni Gaudí’s lifetime. Read more about
                             the
                             Nativity façade <a href="blog.html#blog-selection-architecture">here</a>.</p>
                         
@@ -510,45 +484,46 @@
             </div>
         </div>
     </section>
-    </main>
+
     <!-- Footer -->
     <footer>
+        <h2>Footer</h2>
         <div class="footer-grid">
             <div class="text-block-footer" id="block1">
-                <h3>Copyright</h3>
-                <p>&copy; 2024 El Sagrado Secreto de Gaudí. The current year defines the nativity of our website, one designed and developed by us with passion, and fully presented to you, our users, in all of its online glory.</p>
+                <h3>Disclaimer</h3>
+                <p>&copy; 2024 El Sagrado Secreto de Gaudí. This website was made with love and passion.</p>
             </div>
             <div class="text-block-footer" id="block2">
-                <h3>Content</h3>
+                <h3>Our pages</h3>
                 <ul>
-                    <li><a href="homepage.html" aria-label="Link to Homepage">Home<span></span></a></li>
-                    <li><a href="architecture.html" aria-label="Link to Architecture page">Architecture<span></span></a></li>
-                    <li><a href="timeline.html" aria-label="Link to Timeline page">Timeline<span></span></a></li>
-                    <li><a href="blog.html" aria-label="Link to Blog page">Blog<span></span></a></li>
-                    <li><a href="about.html" aria-label="Link to About us page">About Us<span></span></a></li>
-                    <li><a href="contact.html" aria-label="Link to Contact page">Contact<span></span></a></li>
-                    <li><a href="terms.html" aria-label="Link to Terms and Conditions page">Terms and Conditions<span></span></a></li>
+                    <li><a href="homepage.html">Home<span></span></a></li>
+                    <li><a href="architecture.html">Architecture<span></span></a></li>
+                    <li><a href="timeline.html">Timeline<span></span></a></li>
+                    <li><a href="about.html">About Us<span></span></a></li>
+                    <li><a href="contact.html">Contact<span></span></a></li>
+                    <li><a href="terms.html">Terms and Conditions<span></span></a></li>
                 </ul>
             </div>
             <div class="text-block-footer" id="block3">
                 <h3>Social media</h3>
                 <div class="socialmedia">
-                    <a class="socials" href="https://twitter.com/sagradafamilia/status/1185124497470439426"
-                        target="_blank">
-                        <img src="images/x.png" alt="X Logo with Link to x"></a>
-                    <a class="socials" href="https://www.instagram.com/basilicasagradafamilia/" target="_blank">
-                        <img src="images/ig.png" alt="Instagram Logo with Link to Instagram"></a>
-                    <a class="socials" href="https://www.facebook.com/BasilicadelaSagradaFamilia/" target="_blank">
-                        <img src="images/facebook.png" alt="facebook Logo with Link to facebook"></a>
-                    </div>
+                <a class="socials" href="https://twitter.com/sagradafamilia/status/1185124497470439426"
+                    target="_blank">
+                    <img src="images/x.png" alt="X Logo with Link to x"></a>
+                <a class="socials" href="https://www.instagram.com/basilicasagradafamilia/" target="_blank">
+                    <img src="images/ig.png" alt="Instagram Logo with Link to Instagram"></a>
+                <a class="socials" href="https://www.facebook.com/BasilicadelaSagradaFamilia/" target="_blank">
+                    <img src="images/facebook.png" alt="facebook Logo with Link to facebook"></a>
+                </div>
                 <div class="button-container">
-                    <button class="button-dark" onclick="redirectToPage('https://giving.sagradafamilia.org/puntual?lang=en')">Donate</button>
-                    <button class="button-dark" onclick="redirectToPage('https://giving.sagradafamilia.org/puntual?lang=en')">Tickets</button>
+                    <button class="button-dark"
+                        onclick="redirectToPage('https://giving.sagradafamilia.org/puntual?lang=en')">Donate</button>
+                    <button class="button-dark"
+                        onclick="redirectToPage('https://giving.sagradafamilia.org/puntual?lang=en')">Tickets</button>
                 </div>
             </div>
         </div>
     </footer>
-    
     <script src="model_options.js" async defer></script>
 </body>
 
