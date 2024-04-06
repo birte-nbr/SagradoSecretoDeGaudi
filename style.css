@@ -748,8 +748,11 @@ span {
 
     .title-text-row .button-container {
         grid-column: 2;
-        grid-row: 2;
-        align-self: self-start;
+        grid-row: 2;       
+    }
+    .title-text-row .button-container button {
+        margin-left: 1.5625rem;
+        margin-right: 1.5625rem;
     }
 
 .slideshow-container {
@@ -890,7 +893,7 @@ button[data-popup-target] {
 
   
 
-.button-container {
+.text-block-footer .button-container {
     display: flex;
     justify-content: flex-end;
     gap: 20px;
