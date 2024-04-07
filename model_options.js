@@ -134,6 +134,8 @@ function getCloseID(button){
 function showTextBox(id) {
 	const currentTextbox = document.getElementById("textbox-" + id);
     const textboxArea = document.querySelector(".textbox-area");
+    //marina added: aria-live status
+	const liveStatus = document.getElementById('live-status');
 
     // Check if the clicked textbox is already open
     const isOpen = currentTextbox.style.display === 'block';
@@ -156,6 +158,10 @@ function showTextBox(id) {
         textboxArea.style.display = 'block';
         document.getElementById('last').style.visibility = 'visible';
         document.getElementById('next').style.visibility = 'visible';
+
+		 // maria added: Announce the textbox opening through the live region
+		liveStatus.textContent = 'Now viewing information about: ' + currentTextbox.querySelector('h4').textContent;
+
     }
 }
 
@@ -310,4 +316,78 @@ document.querySelector('#button-load').addEventListener('click',
 		document.querySelector('#Basílica-de-la-Sagrada-Familía').dismissPoster();
 	});
 
+
+//marina added: all label tabs keyboard function
+document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('.tabs [role="tab"]');
+    const checkboxes = document.querySelectorAll('.tab-toggle');
+
+    // Initialize tabs
+    initTabs();
+
+    function initTabs() {
+        tabs.forEach((tab, index) => {
+            tab.addEventListener('click', () => activateTab(tab));
+            tab.addEventListener('keydown', (event) => handleKeydown(event, index));
+        });
+    }
+
+    function handleKeydown(event, index) {
+        let key = event.key;
+        switch (key) {
+            case 'ArrowRight':
+            case 'ArrowDown':  // Use ArrowDown for vertical navigation if needed
+                event.preventDefault();
+                focusNextTab(index, 1);
+                break;
+            case 'ArrowLeft':
+            case 'ArrowUp':  // Use ArrowUp for vertical navigation if needed
+                event.preventDefault();
+                focusNextTab(index, -1);
+                break;
+            case 'Enter':
+            case ' ':
+                // Toggle the tab panel on Enter or Space
+                activateTab(tabs[index]);
+                event.preventDefault();
+                break;
+        }
+    }
+
+    function focusNextTab(currentIndex, direction) {
+        const newIndex = (currentIndex + direction + tabs.length) % tabs.length;
+        tabs[newIndex].focus();
+    }
+
+    function activateTab(tab) {
+        const checkboxId = tab.getAttribute('for');
+        const checkbox = document.getElementById(checkboxId);
+
+        // Ensure only the selected checkbox is checked and all others are not
+        checkboxes.forEach(chk => {
+            if (chk.id === checkboxId) {
+                chk.checked = true; // Check the selected one
+            } else {
+                chk.checked = false; // Uncheck all others
+            }
+        });
+
+        updateAriaAttributes(tab);
+    }
+
+    function updateAriaAttributes(selectedTab) {
+        tabs.forEach(tab => {
+            const panelId = tab.getAttribute('aria-controls');
+            const panel = document.getElementById(panelId);
+
+            if (tab === selectedTab) {
+                tab.setAttribute('aria-selected', 'true');
+                panel.setAttribute('aria-hidden', 'false');
+            } else {
+                tab.setAttribute('aria-selected', 'false');
+                panel.setAttribute('aria-hidden', 'true');
+            }
+        });
+    }
+});
 

@@ -1260,6 +1260,11 @@ section {
                         z-index: 1; 
                 }
 
+                .blog-selection-img a:focus-visible{
+                    outline: 4px solid #0056b3; 
+                    z-index: 100;
+                }
+
 
         .design-title{
             padding: 1rem;
@@ -1851,7 +1856,21 @@ section {
     background: #fff;
 }
 
+/* marina added aria-live  */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
 
+input[name="tabs"]:focus-visible + label {
+    outline: 2px solid #0056b3;
+}
 
 /* Options */
 
@@ -2338,7 +2357,11 @@ model-viewer:focus-visible{
             margin-left: 0.4rem;
             font-size: 0.7rem;
         }
-
+    
+    .container svg {
+        top: 14%;
+        width: 100%;
+    }
 
     /* achitecture page */
     .tabs label {
@@ -2419,7 +2442,11 @@ model-viewer:focus-visible{
     .title-text-row .button-container {
         grid-column: 1; 
         grid-row: 3; 
-        justify-self: center; 
+        justify-content: center; 
+    }
+    .title-text-row .button-container button {
+        margin-left: 0.4rem;
+        margin-right: 0;
     }
     
     .reviewer-photo {
@@ -2442,7 +2469,7 @@ model-viewer:focus-visible{
         text-align: center; 
         padding: 1.5625rem; 
     }
-    .button-container {
+    .text-block-footer .button-container {
         justify-content: center; 
         margin-top: 1rem; 
     }
@@ -2579,6 +2606,10 @@ model-viewer:focus-visible{
     
     .section1 #timeline_project {
         padding-top: 6.25rem;
+    }
+    .container svg {
+        top: 14%;
+        width: 100%;
     }
 
    /* contact page */
@@ -2803,6 +2834,10 @@ model-viewer:focus-visible{
                 width: 100vh;
             } 
         }
+    }
+    .container svg {
+        top: 12%;
+        width: 100%;
     }
 
    /* contact page */
