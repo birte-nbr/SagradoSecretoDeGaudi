@@ -45,9 +45,9 @@ To view the website, you will need to run it using a local server. Below are two
 #### Option 2: Using Python's Built-in Server
 1. Navigate to the project folder in your terminal.
 2. Run the following command (for Python 3.x):
-
+```bash
    python -m http.server
-
+```
 3. Open your browser and go to `http://localhost:8000`.
 
 Once the website is running, the 3D model (`sagrada-final.glb`) will be loaded and displayed automatically. Ensure that the model is correctly placed in the `/models` folder for it to render properly.
